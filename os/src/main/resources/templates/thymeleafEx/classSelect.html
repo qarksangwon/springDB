@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/style1.css}">
+</head>
+<body class="container">
+<h2>신청 가능한 수업</h2>
+<table >
+    <thead>
+    <tr>
+        <th>수강 신청</th>
+        <th>수업 번호</th>
+        <th>수업 이름</th>
+        <th>강사</th>
+        <th>강의실</th>
+        <th>신청 인원</th>
+        <th>제한 인원</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="classtb : ${CLASS}">
+        <td> <button>신청</button></td>
+        <td th:text="${classtb.openNum}"></td>
+        <td th:text="${classtb.title}"></td>
+        <td th:text="${classtb.teacher}"></td>
+        <td th:text="${classtb.room}"></td>
+        <td th:text="${classtb.applicant}"></td>
+        <td th:text="${classtb.max}"></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
