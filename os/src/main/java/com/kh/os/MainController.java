@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/acos")
-public class mainController {
+public class MainController {
     @GetMapping("/main")
     public String viewMain(){
         return "main/main";
+
     }
 }

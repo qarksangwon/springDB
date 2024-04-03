@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+</head>
+<body>
+<h1>로그인</h1>
+<input type="checkbox" id="changeLabelCheckbox">
+<label for="changeLabelCheckbox">비회원 로그인</label>
+<form th:action="@{/acos/signin}" th:object="${userInfo}" method="post">
+    <div>
+        <label for="ID">ID</label>
+        <input type="text" id="ID" th:field="*{id}" />
+    </div>
+    <div>
+        <label for="PW">Password</label>
+        <input type="password" id="PW" th:field="*{password}" />
+    </div>
+    <div>
+        <button type="submit">Sign in</button>
+
+    </div>
+</form>
+<script>
+    document.getElementById('changeLabelCheckbox').addEventListener('change', function() {
+        var isChecked = this.checked;
+        if (isChecked) {
+            document.getElementById('IDLabel').innerText = '휴대폰 번호:';
+            document.getElementById('PWLabel').innerText = '이름:';
+            document.getElementById('PW').type = 'text';
+            document.getElementById('loginForm').action = "@{/acos/signin}";
+        } else {
+            document.getElementById('IDLabel').innerText = 'ID:';
+            document.getElementById('PWLabel').innerText = 'Password:';
+            document.getElementById('PW').type = 'password';
+            document.getElementById('loginForm').action = "@{/acos/signin}";
+        }
+    });
+</script>
+</body>
+</html>
