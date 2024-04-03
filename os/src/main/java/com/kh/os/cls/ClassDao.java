@@ -2,6 +2,7 @@ package com.kh.os.cls;
 
 
 import com.kh.os.dbconn.DbConn;
+import com.kh.os.user.userDAO;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -55,7 +56,7 @@ public class ClassDao {
         }
     }
 
-    public void applyForClass(int openNum, String userId, String userName) {
+    public void applyForClass(ClassVo cvo) {
         try {
             // 데이터베이스 연결
             conn = DbConn.getConnection();
@@ -63,7 +64,7 @@ public class ClassDao {
             // SQL 쿼리문 작성: 선택한 수업 번호에 해당하는 수업 정보 가져오기
             String selectSql = "SELECT * FROM ClassTb WHERE OPENNUM = ?";
             pStmt = conn.prepareStatement(selectSql);
-            pStmt.setInt(1, openNum);
+            pStmt.setInt(1, cvo.getOpenNum());
             ResultSet rs = pStmt.executeQuery();
 
             // 해당 수업 정보가 있는지 확인
@@ -79,10 +80,10 @@ public class ClassDao {
 
                 selectSql = "SELECT * FROM APPLYUSER WHERE ID = ? AND TITLE = ?";
                 pStmt = conn.prepareStatement(selectSql);
-                pStmt.setString(1, userId);
+                pStmt.setString(1, "test");
                 pStmt.setString(2, title);
                 rs = pStmt.executeQuery();
-                if(rs.next()) {
+                if (rs.next()) {
                     System.out.println("이미 신청된 내역이 있습니다.");
                     DbConn.close(rs);
                     DbConn.close(pStmt);
@@ -92,9 +93,9 @@ public class ClassDao {
                 // 현재 신청 인원이 최대 인원을 초과하지 않으면
                 if (currentApplicant < max) {
                     // SQL 쿼리문 작성: 선택한 수업의 신청 인원을 1 증가시킴
-                    String updateSql = "UPDATE ClassTb SET APPLICANT = APPLICANT + 1 WHERE OPENNUM = ?";
+                    String updateSql = "UPDATE ClassTb SET APPLICANT = APPLICANT + 1 WHERE TITLE = ?";
                     pStmt = conn.prepareStatement(updateSql);
-                    pStmt.setInt(1, openNum); // SQL 쿼리문의 ? 위치에 수업 번호를 설정
+                    pStmt.setString(1, cvo.getTitle()); // SQL 쿼리문의 ? 위치에 수업 번호를 설정
                     int result = pStmt.executeUpdate();
 
                     // 업데이트 결과에 따라 메시지 출력
@@ -104,8 +105,8 @@ public class ClassDao {
                         // SQL 쿼리문 작성: USERAPPLY 테이블에 수업 신청 정보 추가
                         String insertSql = "INSERT INTO APPLYUSER (ID, NAME, TITLE, ROOM) VALUES (?, ?, ?, ?)";
                         pStmt = conn.prepareStatement(insertSql);
-                        pStmt.setString(1, userId);
-                        pStmt.setString(2, userName); // 전달받은 userName 사용
+                        pStmt.setString(1, "test");
+                        pStmt.setString(2, "개명한이름"); // 전달받은 userName 사용
                         pStmt.setString(3, title);
                         pStmt.setString(4, room);
                         pStmt.executeUpdate();
@@ -144,7 +145,7 @@ public class ClassDao {
                 String name = rs.getString("NAME");
                 String title = rs.getString("TITLE");
                 String room = rs.getString("ROOM");
-                appliedClasses.add(new ApplyVo(id,name, title,room));
+                appliedClasses.add(new ApplyVo(id, name, title, room));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -157,7 +158,7 @@ public class ClassDao {
     }
 
     public int printAppliedClasses(List<ApplyVo> appliedClasses) {
-        int i =1;
+        int i = 1;
         if (appliedClasses.isEmpty()) {
             System.out.println("신청한 수업이 없습니다.");
             return 1;
@@ -194,4 +195,6 @@ public class ClassDao {
             DbConn.close(conn);
         }
     }
+
+
 }

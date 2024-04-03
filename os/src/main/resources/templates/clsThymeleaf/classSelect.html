@@ -1,0 +1,45 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/clsStyle.css}">
+</head>
+<body class="container">
+<h2>신청 가능한 수업</h2>
+<table>
+    <thead>
+    <tr>
+        <th>수강 신청</th>
+        <th>수업 번호</th>
+        <th>수업 이름</th>
+        <th>강사</th>
+        <th>강의실</th>
+        <th>신청 인원</th>
+        <th>제한 인원</th>
+    </tr>
+    </thead>
+    <tbody>
+    <form th:action="@{/classtb/apply}" method="post" th:each="classtb : ${CLASS}">
+        <tr>
+            <td><input type="submit" value="신청" onclick="return confirmApply()"></td>
+            <td><input type="hidden" name="openNum" th:value="${classtb.openNum}"><span th:text="${classtb.openNum}"></span></td>
+            <td><input type="hidden" name="title" th:value="${classtb.title}"><span th:text="${classtb.title}"></span></td>
+            <td><input type="hidden" name="teacher" th:value="${classtb.teacher}"><span th:text="${classtb.teacher}"></span></td>
+            <td><input type="hidden" name="room" th:value="${classtb.room}"><span th:text="${classtb.room}"></span></td>
+            <td><input type="hidden" name="applicant" th:value="${classtb.applicant}"><span th:text="${classtb.applicant}"></span></td>
+            <td><input type="hidden" name="max" th:value="${classtb.max}"><span th:text="${classtb.max}"></span></td>
+        </tr>
+    </form>
+    </tbody>
+</table>
+<script>
+    function confirmApply() {
+        var result = confirm("신청하시겠습니까?");
+        return result;
+    }
+</script>
+</body>
+</html>
