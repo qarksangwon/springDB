@@ -1,0 +1,72 @@
+<style>
+        .header {
+            overflow: hidden;
+        }
+
+    .banner1{
+    letter-spacing: -0.03em;
+    word-break: keep-all;
+    word-wrap: break-word;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    --common-border: #dae0e9;
+    --point-red: #ff1800;
+    --common-width: 1130px;
+    --font-title: 42px;
+    --font-subtitle: 22px;
+    --font-section-title: 32px;
+    --font-section-subtitle: 18px;
+    --font-common: 16px;
+    --point-skyblue: #00a0ff;
+    --point-navy: #2a2a4e;
+    --common-gray: #60676c;
+    --common-warm-gray: #e2e3e4;
+    --common-cool-gray: #dae0e9;
+    --min-width-page: 1130px;
+    --width-swipe-content: 384px;
+    --margin-common: 24px;
+    --margin-bottom-last-section: 60px;
+    --padding-common-main: 44px;
+    --padding-common: 60px;
+    --padding-top-section: 100px;
+    --padding-bottom-content: 90px;
+    --color-blue: #2c5ae9;
+    --color-blue2: #2750dc;
+    --color-blue3: #1443d9;
+    --color-red: #ec1313;
+    --color-gray: #d7d7d7;
+    --color-bg-gray: #f1f3f8;
+    --color-table-gray: #f2f5f9;
+    --color-border-gray: #dae0e9;
+    --font-size-sectiontitle: 45px;
+    --font-size-contenttitle: 26px;
+    --font-size-contentsubtitle: 20px;
+    --font-size-content: 16px;
+    --font-size-content2: 18px;
+    --edu-subtitle-blue: #304bab;
+    --edu-common-bg: #f1f4f9;
+    --edu-border: #d7d7d7;
+    --main-color-blue: #164ad0;
+    --main-color-cyan: #34dcfa;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    color: inherit;
+    font-size: inherit;
+    box-sizing: border-box;
+    position: absolute;
+    height: 524px;
+    width: 100%;
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: left;
+    text-decoration: none;
+    outline: none;
+    background-image: url("/upload/contents/mainBanner/2023101014371781405.png");
+    background-color: rgb(7, 13, 48);
+    display: block;
+    }
+</style>

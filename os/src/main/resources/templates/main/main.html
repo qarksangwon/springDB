@@ -3,19 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>kh 정보 교육원</title>
-    <style>
-        .header {
-            overflow: hidden;
-        }
-
-        .header h1 {
-            float: left;
-            margin-right: 20px; /* 헤더와 버튼 사이의 간격을 조절할 수 있습니다. */
-        }
-    </style>
+    <link rel="stylesheet" th:href="@{/css/mainStyle.css}">
 </head>
 <body>
-<!-- 가로로 버튼 배치 -->
 <div class="header">
     <h1>KH 정보 교육원</h1>
     <p th:if="${session.userID != null}">
@@ -26,29 +16,10 @@
     </p>
 </div>
 <div>
-    <button onclick="location.href='page1.html'">페이지 1</button>
-    <button onclick="location.href='page2.html'">페이지 2</button>
-    <button onclick="location.href='page3.html'">페이지 3</button>
+    <button>11</button>
+    <button>22</button>
+    <button>33</button>
 </div>
 
-<!-- 이미지 삽입 -->
-<div>
-    <img src="image1.jpg" alt="이미지 1">
-    <img src="image2.jpg" alt="이미지 2">
-    <img src="image3.jpg" alt="이미지 3">
-</div>
-
-<!-- 자바스크립트를 이용하여 특정 시간마다 이미지 변경 -->
-<script>
-    var images = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
-    var currentIndex = 0;
-
-    function changeImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        document.getElementsByTagName('img')[0].src = images[currentIndex];
-    }
-
-    setInterval(changeImage, 5000); // 5초마다 이미지 변경
-</script>
 </body>
 </html>
