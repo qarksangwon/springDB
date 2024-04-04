@@ -9,7 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class NotUserVO {
-    private String phoneNumber="";
-    private String name="";
+public class UserCheckVO {
+    private String val1 = "";  // id, phoneNumber
+    private String val2 = "";  // password , name
+    private String userCheck = "";
 }

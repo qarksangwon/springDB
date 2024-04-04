@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>로그인</title>
@@ -9,33 +8,38 @@
 <h1>로그인</h1>
 <input type="checkbox" id="changeLabelCheckbox">
 <label for="changeLabelCheckbox">비회원 로그인</label>
-<form th:action="@{/acos/signin}" th:object="${userInfo}" method="post">
+<form id="loginForm" th:action="@{/acos/signin}" th:object="${userInfo}" method="post">
     <div>
-        <label for="ID">ID</label>
-        <input type="text" id="ID" th:field="*{id}" />
+        <label for="ID" id="IDLabel">ID</label>
+        <input type="text" id="ID" th:field="*{val1}" />
     </div>
     <div>
-        <label for="PW">Password</label>
-        <input type="password" id="PW" th:field="*{password}" />
+        <label for="PW" id="PWLabel">Password</label>
+        <input type="password" id="PW" th:field="*{val2}" />
+        <input type="hidden" id="userCheck" th:field="*{userCheck}" />
     </div>
     <div>
         <button type="submit">Sign in</button>
-
     </div>
 </form>
 <script>
+    window.onload = function(){
+        document.getElementById('userCheck').value = "0";
+        };
+
     document.getElementById('changeLabelCheckbox').addEventListener('change', function() {
+
         var isChecked = this.checked;
+        var userCheckValue = isChecked ? "1" : "0";
+        document.getElementById('userCheck').value = userCheckValue;
         if (isChecked) {
             document.getElementById('IDLabel').innerText = '휴대폰 번호:';
             document.getElementById('PWLabel').innerText = '이름:';
             document.getElementById('PW').type = 'text';
-            document.getElementById('loginForm').action = "@{/acos/signin}";
         } else {
             document.getElementById('IDLabel').innerText = 'ID:';
             document.getElementById('PWLabel').innerText = 'Password:';
             document.getElementById('PW').type = 'password';
-            document.getElementById('loginForm').action = "@{/acos/signin}";
         }
     });
 </script>

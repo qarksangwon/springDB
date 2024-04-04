@@ -17,5 +17,9 @@ public class UserVO {
     private String question = "";
     private String answer = "";
 
+    public UserVO(String id, String password){
+        this.id = id;
+        this.password = password;
+    }
 
 }

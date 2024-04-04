@@ -130,6 +130,21 @@ public class UserDAO {
         return userDTO;
     }
 
+    public NotUserVO userInfo(NotUserVO nUser)throws SQLException{
+        conn = DbConn.getConnection();
+        String q = "SELECT * FROM usertb WHERE id = ?";
+        pstmt = conn.prepareStatement(q);
+        pstmt.setString(1, nUser.getPhoneNumber());
+        rs = pstmt.executeQuery();
+        NotUserVO userDTO = null;
+        if(rs.next()){
+            userDTO = new NotUserVO(rs.getString("phonenumber"),rs.getString("name"));
+        }
+        DbConn.close(pstmt);
+        DbConn.close(conn);
+        return userDTO;
+    }
+
     //회원 탈퇴
     // 아이디, 비밀번호, 본인확인 질문 보여 준 뒤 답변 받고 맞으면
     // return 0 -> 아이디 없음
