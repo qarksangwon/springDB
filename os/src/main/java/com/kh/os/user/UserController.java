@@ -16,6 +16,7 @@ import java.sql.SQLException;
 @Controller
 @RequestMapping("/acos")
 public class UserController {
+    static UserDAO uDao = new UserDAO();
     @Autowired
     private HttpSession session;
 
@@ -27,7 +28,6 @@ public class UserController {
 
     @PostMapping("/signin")
     public String signinOK(@ModelAttribute("userInfo")UserCheckVO userCheck) throws SQLException {
-        UserDAO uDao = new UserDAO();
         UserVO userVO = null;
         NotUserVO nUserVO = null;
         int rs;
@@ -62,6 +62,21 @@ public class UserController {
                 return "user/signinCheck";
             default:
                 return "main/main";
+        }
+    }
+
+    @GetMapping("/signup")
+    public String signUpView(Model model){
+        model.addAttribute("userInfo",new UserVO());
+        return "user/signUp";
+    }
+
+    @PostMapping("/signup")
+    public String signUpOK(@ModelAttribute("userInfo")UserVO user) throws SQLException{
+        int suRst = uDao.signUp(user);
+        if(suRst == 1) return "redirect:/acos/main";
+        else{
+            return "redirect:/acos/signup";
         }
     }
 
