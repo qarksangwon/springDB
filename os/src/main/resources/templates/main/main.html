@@ -1,25 +1,74 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>kh 정보 교육원</title>
-    <link rel="stylesheet" th:href="@{/css/mainStyle.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KH 정보교육원</title>
+    <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/KH.css">
+
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
 </head>
 <body>
-<div class="header">
-    <h1>KH 정보 교육원</h1>
-    <p th:if="${session.userID != null}">
-        "<span th:text="${session.userID}"></span>"님 반갑습니다.
-    </p>
-    <p th:if="${session.userID == null}">
-        로그인되지 않음
-    </p>
-</div>
-<div>
-    <button>11</button>
-    <button>22</button>
-    <button>33</button>
-</div>
+<div id="wrap">
+    <header>
+        <div class="header_left">
+            <h1 class="logo"><a href="#"><img src="/img/logo_img.png" alt=""></a></h1>
+            <div class="nav">
+                <ul class="header_nav">
+                    <li><a href="#">상담 신청</a></li>
+                    <li><a href="#">수강 신청</a></li>
+                    <li><a href="#">Q&A</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header_right">
+            <section>
+                <form action="https://khedu.co.kr" method="GET">
+                    <input type="text" name="query" placeholder="">
+                    <button type="submit" id="search-btn"><img src="/img/search_icon.png" alt=""></button>
+                </form>
+            </section>
+            <div class="login_join">
+                <ul>
+                    <li><a href="#">로그인</a></li>
+                    <li>|</li>
+                    <li><a href="#">회원가입</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="slideshow-container">
+        <div class="mySlides_fade1">
+            <img src="/img/bn_img_02.jpg" alt="">
+        </div>
 
+        <div class="mySlides_fade2">
+            <img src="/img/bn_img_03.jpg" alt="">
+        </div>
+
+        <div class="mySlides_fade3">
+            <img src="/img/bn_img_04.png" alt="">
+        </div>
+    </div>
+</div>
 </body>
 </html>
+
+<script>
+    let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  const slides = document.querySelectorAll('.mySlides_fade1,.mySlides_fade2,.mySlides_fade3, .fade');
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 3000); // Change slide every 3 seconds
+}
+</script>
