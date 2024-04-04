@@ -40,13 +40,6 @@ public class CLSController {
             return "clsThymeleaf/clsSelectError";
         }
     }
-    @PostMapping("/cancls")
-    public String cancleApply(@ModelAttribute("cancles") ApplyVo cvo) {
-        ClassDao oDao = new ClassDao();
-        oDao.cancelAllAppliedClasses(cvo);
-        return "clsThymeleaf/clsCancle";
-
-    }
 
     @GetMapping("/myclass")
     public String showMyClasses(Model model) {
