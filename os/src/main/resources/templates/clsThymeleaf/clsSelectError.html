@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/clsStyle.css}">
+</head>
+<body class="container">
+<h2>신청 결과</h2>
+<div>
+    <p>중복된 신청입니다.</p>
+    <form th:action="@{/classtb/select}" method="get">
+        <button type="submit">돌아가기</button>
+    </form>
+</div>
+</body>
+</html>

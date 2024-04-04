@@ -24,7 +24,7 @@
     <tbody>
     <form th:action="@{/classtb/apply}" method="post" th:each="classtb : ${CLASS}">
         <tr>
-            <td><input type="submit" value="신청" onclick="return confirmApply()"></td>
+            <td><input type="submit" value="신청" onclick="return confirmApply()" style="background-color: red; color: white; font-weight: bold;"></td>
             <td><input type="hidden" name="openNum" th:value="${classtb.openNum}"><span th:text="${classtb.openNum}"></span></td>
             <td><input type="hidden" name="title" th:value="${classtb.title}"><span th:text="${classtb.title}"></span></td>
             <td><input type="hidden" name="teacher" th:value="${classtb.teacher}"><span th:text="${classtb.teacher}"></span></td>
@@ -35,6 +35,9 @@
     </form>
     </tbody>
 </table>
+
+<form th:action="@{/classtb/myclass}" method="get" style="margin-top: 20px;">
+    <button type="submit">나의 수업 조회</button>
 <script>
     function confirmApply() {
         var result = confirm("신청하시겠습니까?");

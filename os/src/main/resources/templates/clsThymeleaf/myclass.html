@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>나의 수업 조회</title>
+    <link rel="stylesheet" th:href="@{/css/clsStyle.css}">
+</head>
+<body class="container">
+<h2>나의 수업 조회</h2>
+<table>
+    <thead>
+    <tr>
+        <th>신청 취소</th>
+        <th>ID</th>
+        <th>수업 이름</th>
+        <th>강의실</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="myclass : ${myclasses}">
+        <form th:action="@{/classtb/myclass}" method="post">
+            <td>
+                <input type="hidden" th:name="id" th:value="${myclass.id}">
+                <input type="hidden" th:name="title" th:value="${myclass.title}">
+                <input type="submit" value="취소" style="background-color: red; color: white; font-weight: bold;" onclick="return confirm('취소하시겠습니까?')">
+            </td>
+            <td><span th:text="${myclass.name}"></span></td>
+            <td><span th:text="${myclass.title}"></span></td>
+            <td><span th:text="${myclass.room}"></span></td>
+        </form>
+    </tr>
+    </tbody>
+
+</table>
+
+<script>
+    function cancleApply() {
+        var result = confirm("취소하시겠습니까?");
+        return result;
+    }
+</script>
+
+</body>
+</html>
