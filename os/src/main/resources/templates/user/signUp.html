@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sign Up</title>
+</head>
+<body class="container">
+<div class="form-container">
+    <h1>회원 가입</h1>
+    <form th:action="@{/acos/signup}" th:object="${userInfo}" method="post">
+        <div>
+            <label for="id">ID</label>
+            <input type="text" id="id" th:field="*{id}" />
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="text" id="password" th:field="*{password}" />
+        </div>
+        <div>
+            <label for="name">이름</label>
+            <select id="name" th:field="*{name}" >
+                <option value ="꿈이 뭔가요?">꿈이 뭔가요?</option>
+                <option value ="꿈이 뭔가요?">취미가 뭔가요?</option>
+                <option value ="꿈이 뭔가요?">가장 좋아하는 음식?</option>
+            </select>
+        </div>
+        <div>
+            <label for="question">본인확인 질문</label>
+            <input type="text" id="question" th:field="*{question}" />
+        </div>
+        <div>
+            <label for="answer">답변</label>
+            <input type="date" id="answer" th:field="*{answer}" />
+        </div>
+        <div>
+            <button type="submit">등록</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
