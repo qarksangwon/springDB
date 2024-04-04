@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>취소완료</title>
+  <title>취소 완료 페이지</title>
+  <link rel="stylesheet" th:href="@{/css/clsStyle.css}">
 </head>
-<body>
+<body class="container">
 
+<h2>취소 완료</h2>
+<div>
+  <p>취소 완료되었습니다..</p>
+  <form th:action="@{/classtb/select}" method="get">
+    <button type="submit">돌아가기</button>
+  </form>
+</div>
 </body>
 </html>
