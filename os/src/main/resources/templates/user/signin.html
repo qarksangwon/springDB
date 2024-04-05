@@ -10,7 +10,7 @@
 <body>
 <header>
     <div class="header_left">
-        <h1 class="logo"><a href="#"><img src="/img/logo_img.png" alt=""></a></h1>
+        <h1 class="logo"><a href="/acos/main"><img src="/img/logo_img.png" alt=""></a></h1>
         <div class="nav">
             <ul class="header_nav">
                 <li><a href="#">상담 신청</a></li>
@@ -62,11 +62,9 @@
     </div>
     <form id="loginForm" th:action="@{/acos/signin}" th:object="${userInfo}" method="post">
         <div class="id_search">
-            <label for="ID" id="IDLabel"></label>
             <input type="text" id="ID" th:field="*{val1}" placeholder="ID"/>
         </div>
         <div class="pw_search">
-            <label for="PW" id="PWLabel"></label>
             <input type="password" id="PW" th:field="*{val2}" placeholder="PW"/>
             <input type="hidden" id="userCheck" th:field="*{userCheck}" />
         </div>
@@ -87,12 +85,12 @@
         var userCheckValue = isChecked ? "1" : "0";
         document.getElementById('userCheck').value = userCheckValue;
         if (isChecked) {
-            document.getElementById('IDLabel').innerText = '휴대폰 번호:';
-            document.getElementById('PWLabel').innerText = '이름:';
+            document.getElementById('ID').placeholder = '휴대폰 번호';
+            document.getElementById('PW').placeholder = '이름';
             document.getElementById('PW').type = 'text';
         } else {
-            document.getElementById('IDLabel').innerText = 'ID:';
-            document.getElementById('PWLabel').innerText = 'Password:';
+            document.getElementById('ID').placeholder = 'ID';
+            document.getElementById('PW').placeholder = 'Password';
             document.getElementById('PW').type = 'password';
         }
     });

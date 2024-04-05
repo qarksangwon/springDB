@@ -189,7 +189,7 @@ header .header_right .login_join {
     }
 /*비밀번호 입력창*/
 .pw_search {position: absolute; top: 35%; width: 80%; left: 50%; transform: translateX(-50%);}
-.pw_search input[type="password"] {
+.pw_search input[type="password"], .pw_search input[type="text"] {
         width: 100%;
         height: 60px;
         font-size: 18px;
