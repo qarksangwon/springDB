@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" th:href="@{/css/clsStyle.css}">
+    <style>
+        .header-image {
+            width: 300px; /* 이미지를 화면에 꽉 차게 표시합니다. */
+            height: auto; /* 이미지의 비율을 유지합니다. */
+        }
+        .container {
+            padding-top: 20px; /* 기존 컨텐츠가 이미지 아래에 나타나도록 여백을 추가합니다. */
+        }
+    </style>
 </head>
+<img src="https://khedu.co.kr/resources/images/main/logo.svg" alt="Your Image" class="header-image">
 <body class="container">
 <h2>신청 결과</h2>
 <div>
