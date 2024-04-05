@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -13,6 +11,19 @@
         }
         .container {
             padding-top: 20px; /* 기존 컨텐츠가 이미지 아래에 나타나도록 여백을 추가합니다. */
+        }
+        .apply-button {
+            padding: 8px 18px; /* 버튼 내부 여백 설정 */
+            font-size: 16px; /* 버튼 텍스트 크기 설정 */
+            background-color: red; /* 배경색 설정 */
+            color: white; /* 텍스트 색상 설정 */
+            font-weight: bold; /* 텍스트 굵게 설정 */
+            border: none; /* 테두리 제거 */
+            cursor: pointer; /* 마우스 커서를 포인터로 변경하여 클릭 가능함을 나타냄 */
+            transition: background-color 0.3s; /* 배경색 변화에 애니메이션 효과 추가 */
+        }
+        .apply-button:hover {
+            background-color: darkred; /* 마우스를 올렸을 때의 배경색 설정 */
         }
     </style>
 </head>
@@ -32,27 +43,33 @@
     </tr>
     </thead>
     <tbody>
-        <tr th:each="classtb : ${CLASS}">
-            <form th:action="@{/classtb/apply}" method="post" th:object ="${applys}">
-            <td><input type="submit" value="신청" onclick="return confirmApply()" style="background-color: red; color: white; font-weight: bold;"></td>
-            <td><input type="hidden" name="openNum" th:name ="openNum" th:value="${classtb.openNum}"><span th:text="${classtb.openNum}"></span></td>
-            <td><input type="hidden" name="title" th:name ="title" th:value="${classtb.title}"><span th:text="${classtb.title}"></span></td>
-            <td><input type="hidden" name="teacher" th:name ="teacher" th:value="${classtb.teacher}"><span th:text="${classtb.teacher}"></span></td>
-            <td><input type="hidden" name="room" th:name ="room" th:value="${classtb.room}"><span th:text="${classtb.room}"></span></td>
-            <td><input type="hidden" name="applicant" th:name ="applicant" th:value="${classtb.applicant}"><span th:text="${classtb.applicant}"></span></td>
-            <td><input type="hidden" name="max" th:name ="max" th:value="${classtb.max}"><span th:text="${classtb.max}"></span></td>
-            </form>
-        </tr>
+    <tr th:each="classtb : ${CLASS}">
+        <form th:action="@{/classtb/apply}" method="post" th:object="${applys}">
+            <td><input type="submit" value="신청" onclick="return confirmApply()" class="apply-button"></td>
+            <td><input type="hidden" name="openNum" th:name="openNum" th:value="${classtb.openNum}"><span
+                    th:text="${classtb.openNum}"></span></td>
+            <td><input type="hidden" name="title" th:name="title" th:value="${classtb.title}"><span
+                    th:text="${classtb.title}"></span></td>
+            <td><input type="hidden" name="teacher" th:name="teacher" th:value="${classtb.teacher}"><span
+                    th:text="${classtb.teacher}"></span></td>
+            <td><input type="hidden" name="room" th:name="room" th:value="${classtb.room}"><span
+                    th:text="${classtb.room}"></span></td>
+            <td><input type="hidden" name="applicant" th:name="applicant" th:value="${classtb.applicant}"><span
+                    th:text="${classtb.applicant}"></span></td>
+            <td><input type="hidden" name="max" th:name="max" th:value="${classtb.max}"><span
+                    th:text="${classtb.max}"></span></td>
+        </form>
+    </tr>
     </tbody>
 </table>
 
 <form th:action="@{/classtb/myclass}" method="get" style="margin-top: 20px;">
     <button type="submit">나의 수업 조회</button>
-<script>
-    function confirmApply() {
-        var result = confirm("신청하시겠습니까?");
-        return result;
-    }
-</script>
+    <script>
+        function confirmApply() {
+            var result = confirm("신청하시겠습니까?");
+            return result;
+        }
+    </script>
 </body>
 </html>
