@@ -22,17 +22,17 @@
     </tr>
     </thead>
     <tbody>
-    <form th:action="@{/classtb/apply}" method="post" th:each="classtb : ${CLASS}">
-        <tr>
+        <tr th:each="classtb : ${CLASS}">
+            <form th:action="@{/classtb/apply}" method="post" th:object ="${applys}">
             <td><input type="submit" value="신청" onclick="return confirmApply()" style="background-color: red; color: white; font-weight: bold;"></td>
-            <td><input type="hidden" name="openNum" th:value="${classtb.openNum}"><span th:text="${classtb.openNum}"></span></td>
-            <td><input type="hidden" name="title" th:value="${classtb.title}"><span th:text="${classtb.title}"></span></td>
-            <td><input type="hidden" name="teacher" th:value="${classtb.teacher}"><span th:text="${classtb.teacher}"></span></td>
-            <td><input type="hidden" name="room" th:value="${classtb.room}"><span th:text="${classtb.room}"></span></td>
-            <td><input type="hidden" name="applicant" th:value="${classtb.applicant}"><span th:text="${classtb.applicant}"></span></td>
-            <td><input type="hidden" name="max" th:value="${classtb.max}"><span th:text="${classtb.max}"></span></td>
+            <td><input type="hidden" name="openNum" th:name ="openNum" th:value="${classtb.openNum}"><span th:text="${classtb.openNum}"></span></td>
+            <td><input type="hidden" name="title" th:name ="title" th:value="${classtb.title}"><span th:text="${classtb.title}"></span></td>
+            <td><input type="hidden" name="teacher" th:name ="teacher" th:value="${classtb.teacher}"><span th:text="${classtb.teacher}"></span></td>
+            <td><input type="hidden" name="room" th:name ="room" th:value="${classtb.room}"><span th:text="${classtb.room}"></span></td>
+            <td><input type="hidden" name="applicant" th:name ="applicant" th:value="${classtb.applicant}"><span th:text="${classtb.applicant}"></span></td>
+            <td><input type="hidden" name="max" th:name ="max" th:value="${classtb.max}"><span th:text="${classtb.max}"></span></td>
+            </form>
         </tr>
-    </form>
     </tbody>
 </table>
 
