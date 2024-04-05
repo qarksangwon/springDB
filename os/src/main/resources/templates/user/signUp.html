@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Sign Up</title>
 </head>
 <body class="container">
@@ -17,19 +18,19 @@
         </div>
         <div>
             <label for="name">이름</label>
-            <select id="name" th:field="*{name}" >
+            <input type="text" id="name" th:field="*{name}" />
+        </div>
+        <div>
+            <label for="question">본인확인 질문</label>
+            <select id="question" th:field="*{question}" >
                 <option value ="꿈이 뭔가요?">꿈이 뭔가요?</option>
                 <option value ="꿈이 뭔가요?">취미가 뭔가요?</option>
                 <option value ="꿈이 뭔가요?">가장 좋아하는 음식?</option>
             </select>
         </div>
         <div>
-            <label for="question">본인확인 질문</label>
-            <input type="text" id="question" th:field="*{question}" />
-        </div>
-        <div>
             <label for="answer">답변</label>
-            <input type="date" id="answer" th:field="*{answer}" />
+            <input type="text" id="answer" th:field="*{answer}" />
         </div>
         <div>
             <button type="submit">등록</button>
