@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -32,10 +33,28 @@
                 </form>
             </section>
             <div class="login_join">
-                <ul>
-                    <li><a href="#">로그인</a></li>
+                <!-- InUser 세션이 있는 경우 -->
+                <ul th:if="${#session != null && #session.getAttribute('InUser') != null}">
+                    <li>
+                        <form th:action="@{/acos/mypage}" method="post">
+                            <input type="hidden" name="InUser" th:value="${#session.getAttribute('InUser')}" />
+                            <button type="submit">마이페이지</button>
+                        </form>
+                    </li>
                     <li>|</li>
-                    <li><a href="#">회원가입</a></li>
+                    <li><a href="#" th:href="@{/acos/logout}">로그아웃</a></li>
+                </ul>
+                <!-- InNotUser 세션이 있는 경우 -->
+                <ul th:if="${#session != null && #session.getAttribute('InNotUser') != null}">
+                    <li><span th:text="${#session.getAttribute('InNotUser').name}">사용자 이름</span></li>
+                    <li>|</li>
+                    <li><a href="#" th:href="@{/acos/logout}">로그아웃</a></li>
+                </ul>
+                <!-- 세션이 없는 경우 -->
+                <ul th:if="${#session == null || #session.getAttribute('InUser') == null && #session.getAttribute('InNotUser') == null}">
+                    <li><a href="/acos/signin">로그인</a></li>
+                    <li>|</li>
+                    <li><a href="/acos/signup">회원가입</a></li>
                 </ul>
             </div>
         </div>

@@ -83,7 +83,7 @@ header .header_right input {
     border-radius: 8px;
     border: #fff;
     background-color: #e7e5e5;
-    
+
 }
 header .header_right button {
     position: absolute;
@@ -125,4 +125,8 @@ header .header_right .login_join > ul > li:hover {
 }
 .mySlides_fade1 {
     display: inline-block;
+}
+
+.login_join > button {
+position :fixed;
 }
