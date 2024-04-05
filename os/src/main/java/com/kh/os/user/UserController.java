@@ -27,7 +27,7 @@ public class UserController {
     }
 
     @PostMapping("/signin")
-    public String signinOK(@ModelAttribute("userInfo")UserCheckVO userCheck) throws SQLException {
+    public String signinOK(@ModelAttribute("userInfo")UserCheckVO userCheck, Model model) throws SQLException {
         UserVO userVO = null;
         NotUserVO nUserVO = null;
         int rs;
@@ -52,13 +52,14 @@ public class UserController {
 
                 return "redirect:/acos/main";
             case 2:
-                System.out.println(rs);
-                System.out.println("비밀번호 틀림");
+                System.out.println(rs);;
+                model.addAttribute("errorMessage", "비밀번호가 틀렸습니다.");
                 return "user/signinCheck";
+
             case 0:
                 System.out.println(rs);
-                if(nUserVO == null) System.out.println("아이디 없음");
-                else System.out.println("이름이 다름");
+                if(nUserVO == null) model.addAttribute("errorMessage", "가입된 아이디가 없습니다.");
+                else model.addAttribute("errorMessage", "가입된 번호에 이름이 다릅니다.");
                 return "user/signinCheck";
             default:
                 return "main/main";
@@ -80,10 +81,42 @@ public class UserController {
         }
     }
 
+    @GetMapping("/change")
+    public String changeView(Model model) throws SQLException{
+        UserVO inUser = (UserVO) session.getAttribute("InUser");
+        model.addAttribute("userInfo",inUser);
+        return "user/change";
+    }
+    @PostMapping("/change")
+    public String changeOK(@ModelAttribute("userInfo")UserVO user, Model model) throws SQLException{
+        int rst = uDao.updateUser(user);
+        if(rst == 1) {
+            session.invalidate();
+            session.setAttribute("InUser", user);
+            model.addAttribute("Message","변경이 완료됐습니다.");
+        }
+        else{
+            model.addAttribute("Message","변경 불가능한 값이 들어있습니다.");
+        }
+        return "user/changeCheck";
+    }
+
+    @GetMapping("/withdraw")
+    public String withDraw(){
+        return "user/withdraw";
+    }
+
+    @PostMapping("/withdraw")
+    public String withDrawOK() throws SQLException{
+        UserVO user = (UserVO) session.getAttribute("InUser");
+        uDao.withDraw(user);
+        session.invalidate();
+        return "redirect:/acos/main";
+    }
+
+
     @GetMapping("/logout")
-    public String logout(HttpSession session){
-        session.removeAttribute("InUser");
-        session.removeAttribute("InNotUser");
+    public String logout(){
         session.invalidate();
         return "redirect:/acos/main";
     }
