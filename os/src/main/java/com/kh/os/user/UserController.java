@@ -48,7 +48,7 @@ public class UserController {
         }
         switch (rs){
             case 1:
-                System.out.println(rs);
+                System.out.println(session);
 
                 return "redirect:/acos/main";
             case 2:
@@ -81,9 +81,10 @@ public class UserController {
     }
 
     @GetMapping("/logout")
-    public String logout(){
+    public String logout(HttpSession session){
         session.removeAttribute("InUser");
         session.removeAttribute("InNotUser");
+        session.invalidate();
         return "redirect:/acos/main";
     }
 

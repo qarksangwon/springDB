@@ -105,8 +105,8 @@ header .header_right button {
 }
 header .header_right .login_join {
     position: absolute;
-    right: 60%;
-    top: 40%;
+    right: 500px;
+    top: 50px;
 }
 header .header_right .login_join > ul > li {
     display: inline-block;
@@ -116,6 +116,12 @@ header .header_right .login_join > ul > li {
 header .header_right .login_join > ul > li:hover {
     border-bottom: 2px solid #000;
     transform: scale(1.0);
+}
+/*마이페이지|로그아웃*/
+.logout_mypg {
+    position : absolute;
+    right:0;
+    top:0;
 }
 /* slide img */
 .slideshow-container {
@@ -381,4 +387,7 @@ footer .fot_ground {
 .kh_logo_fot img {
   border-radius: 100px;
   width: 70px;
+}
+.mypage {
+position: fixed;
 }

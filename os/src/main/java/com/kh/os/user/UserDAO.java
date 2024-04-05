@@ -132,7 +132,7 @@ public class UserDAO {
 
     public NotUserVO userInfo(NotUserVO nUser)throws SQLException{
         conn = DbConn.getConnection();
-        String q = "SELECT * FROM usertb WHERE id = ?";
+        String q = "SELECT * FROM notusertb WHERE phonenumber = ?";
         pstmt = conn.prepareStatement(q);
         pstmt.setString(1, nUser.getPhoneNumber());
         rs = pstmt.executeQuery();
