@@ -77,7 +77,7 @@ public class UserDAO {
         pstmt = conn.prepareStatement(q);
         pstmt.setString(1,user.getId());
         int rrs = 0;
-        rs = pstmt.executeQuery(q);
+        rs = pstmt.executeQuery();
         if(!rs.next()){
             q = "INSERT INTO usertb VALUES(?,?,?,?,?)";
             try {
