@@ -48,7 +48,7 @@
                 </form>
                 <form th:action="@{/acos/signin}" method="get" th:if="${#session == null}">
                     <select onchange="window.location.href=this.value">
-                        <option disabled selected >선택 하세욧!</option>
+                        <option disabled selected ><h2>로그인 | 회원가입</h2></option>
                         <option value="/acos/signin">로그인</option>
                         <option value="/acos/signup">회원가입</option>
                     </select>

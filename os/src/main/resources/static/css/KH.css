@@ -105,24 +105,25 @@ header .header_right button {
 }
 header .header_right .login_join {
     position: absolute;
-    right: 500px;
-    top: 50px;
+    right: 40%;
+    top: 30%;
 }
-header .header_right .login_join > ul > li {
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 500;
+.login_join select {
+    width : 200px;
+    height: 40px;
+    font-size : 15px;
+    padding: 5px;
+    appearance: none;
+    cursor: pointer;
+    font-family:'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    color: #585858;
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
 }
-header .header_right .login_join > ul > li:hover {
-    border-bottom: 2px solid #000;
-    transform: scale(1.0);
-}
-/*마이페이지|로그아웃*/
-.logout_mypg {
-    position : absolute;
-    right:0;
-    top:0;
-}
+
 /* slide img */
 .slideshow-container {
     width: 100%;
