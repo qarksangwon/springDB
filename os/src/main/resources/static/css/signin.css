@@ -1,0 +1,119 @@
+@charset "utf-8";
+@import url(fonts.css);
+
+* {margin: 0; padding: 0;}
+
+body {font-family: 'Noto Sans KR', sans-serif; font-weight: 400;  color: #585858;}
+
+.wrap {
+    width: 1920px;
+    height: auto;
+    position: relative;
+}
+header {
+    width: 100%;
+    min-width: 1920px;
+    height: 80px;
+    top: 10px;
+    position: fixed;
+    position: relative;
+}
+header .header_left {
+    position: relative;
+    width: 50%;
+    height: 80px;
+}
+
+/* logo */
+header .header_left > h1 {
+    position: absolute;
+    width: 200px;
+    height: 80px;
+    left: 40%;
+}
+header .header_left > h1 > a > img {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+/* nav */
+.header_left .nav {
+    position: absolute;
+    top: 40%;
+    right: 0;
+}
+.header_left .nav > ul > li {
+    margin-right: 40px;
+    font-size: 18px;
+    float: left;
+    font-weight: bold;
+
+}
+.header_left .nav > ul > li:hover {
+    border-bottom: 2px solid #6568f7;
+    color: #6568f7;
+    transform: scale(1.1);
+
+}
+/* header_right */
+header .header_right {
+    position: relative;
+    width: 50%;
+    height: 80px;
+    left: 55%;
+    bottom: 100%;
+}
+header .header_right form {
+    display: inline-block;
+    height: 80px;
+
+}
+header .header_right section {
+    position: relative;
+    width: 260px;
+    height: 80px;
+    left: 10px;
+}
+header .header_right input {
+    position: absolute;
+    width: 260px;
+    height: 40px;
+    top: 30%;
+    border-radius: 8px;
+    border: #fff;
+    background-color: #e7e5e5;
+
+}
+header .header_right button {
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    top: 38%;
+    right: 0;
+    margin-right: 5px;
+
+}
+#search-btn {
+    width: 30px;
+    cursor: pointer;
+    border: none;
+    background-color: #e7e5e5;
+}
+#search-btn img {
+    width: 20px;
+    height: 20px;
+}
+header .header_right .login_join {
+    position: absolute;
+    right: 60%;
+    top: 40%;
+}
+header .header_right .login_join > ul > li {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+}
+header .header_right .login_join > ul > li:hover {
+    border-bottom: 2px solid #000;
+    transform: scale(1.0);
+}
