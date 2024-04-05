@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>상담 예약 조회</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
+
+<h2>상담 예약 조회</h2>
+
+<table>
+    <tr>
+        <th>이름</th>
+        <th>예약 날짜</th>
+        <th>전화 번호</th>
+        <th>문의 내용</th>
+    </tr>
+    <!-- 상담 예약 정보를 반복하여 표시 -->
+    <th:block th:each="enrolment : ${enrolmentList}">
+        <tr>
+            <td th:text="${enrolment.name}">Name</td>
+            <td th:text="${enrolment.date}">Date</td>
+            <td th:text="${enrolment.phoneNumber}">Phone Number</td>
+            <td th:text="${enrolment.inquiry}">Inquiry</td>
+        </tr>
+    </th:block>
+</table>
 
 </body>
 </html>
