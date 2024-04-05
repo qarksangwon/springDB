@@ -13,7 +13,6 @@ body {font-family: 'Noto Sans KR', sans-serif; font-weight: 400;  color: #585858
 header {
     width: 100%;
     min-width: 1920px;
-    border: 1px solid #5678;
     height: 80px;
     top: 10px;
     position: fixed;
@@ -48,13 +47,13 @@ header .header_left > h1 > a > img {
     font-size: 18px;
     float: left;
     font-weight: bold;
-    
+
 }
 .header_left .nav > ul > li:hover {
     border-bottom: 2px solid #6568f7;
     color: #6568f7;
     transform: scale(1.1);
-    
+
 }
 /* header_right */
 header .header_right {
@@ -118,15 +117,268 @@ header .header_right .login_join > ul > li:hover {
     border-bottom: 2px solid #000;
     transform: scale(1.0);
 }
-
-.mySlides_fade img {
-    width: 300px;
+/* slide img */
+.slideshow-container {
+    width: 100%;
     height: auto;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
 }
+/* first img */
 .mySlides_fade1 {
-    display: inline-block;
+    position: relative;
+    background-color: rgb(0,28,196); /* 첫 번째 div의 배경색 설정 */
+  }
+  .mySlides_fade1 .fade1_box {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+  }
+  .mySlides_fade1 .fade1_box h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+  }
+  .mySlides_fade1 .fade1_box p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+  }
+  .mySlides_fade1 .fade1_box .margin_p {
+    margin-top: 100px;
+
+  }
+/* second img */
+  .mySlides_fade2 {
+    position: relative;
+    background-color: rgb(71,0,168); /* 두 번째 div의 배경색 설정 */
+  }
+  .mySlides_fade2 .fade2_box {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+  }
+  .mySlides_fade2 .fade2_box h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+  }
+  .mySlides_fade2 .fade2_box p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+  }
+  .mySlides_fade2 .fade2_box .margin_p {
+    margin-top: 100px;
+
+  }
+  /* third img */
+  .mySlides_fade3 {
+    position: relative;
+    background-color: rgb(255,57,98); /* 세 번째 div의 배경색 설정 */
+  }
+  .mySlides_fade3 .fade3_box {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+  }
+  .mySlides_fade3 .fade3_box h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+  }
+  .mySlides_fade3 .fade3_box p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+  }
+  .mySlides_fade3 .fade3_box .margin_p {
+    margin-top: 100px;
+
+  }
+
+  .slideshow-container img {
+    position: relative; /* 이미지의 위치를 상대적으로 설정합니다. */
+    left: 48%; /* 이미지를 수평으로 이동합니다. */
+    top: 3px; /* 이미지를 수직으로 이동합니다. */
+  }
+
+  /* hrd-net */
+  .HRD-net {
+    margin-top: 50px;
+    position: relative;
+    width: 1920px;
+    height: 200px;
+  }
+  .HRD-net .left-hrd {
+    width: 350px;
+    height: 90px;
+    border-radius: 5px;
+    position: absolute;
+    background: rgb(33, 150, 243);
+    left: 30%;
+    box-shadow: 10px 10px 5px #888888;
+  }
+  .HRD-net .left-hrd > h2 {
+    margin: 0 0 0 20px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+  }
+  .HRD-net .left-hrd > p {
+    margin: 13px 0 0 20px;
+    font-size: 20px;
+    color: #fff;
+  }
+  .HRD-net img {
+    position: absolute;
+    width: 35px;
+    height: auto;
+    top: 25px;
+    right: 10px;
+    margin-right: 10px;
+  }
+  .HRD-net img:hover {
+    transform: scale(1.1);
+  }
+  .HRD-net .right-hrd {
+    width: 350px;
+    height: 90px;
+    border-radius: 5px;
+    position: absolute;
+    background: rgb(160, 160, 160);
+    right: 30%;
+    box-shadow: 10px 10px 5px #888888;
+  }
+  .HRD-net .right-hrd > h2 {
+    margin: 0 0 0 20px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+  }
+  .HRD-net .right-hrd > p {
+    margin: 13px 0 0 20px;
+    font-size: 20px;
+    color: #fff;
+  }
+
+/* k_디지털 */
+
+.k_lecture {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    text-align: center;
+    min-width: 1920px;
+    margin-bottom: 100px;
+
+}
+.k_lecture h2 {
+    font-size: 32px;
+    color: #000;
+    margin-bottom: 10px;
+}
+.k_lecture .image_box {
+    margin-top: 40px;
+    position: absolute;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.k_lecture .image_box ul li {
+    float: left;
+    width: 25%;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.k_lecture .image_box ul li img {
+    width: 250px;
+    border-radius: 10px;
+    height: auto;
+    position: relative;
+}
+.k_lecture .image_box ul li h2 {
+    margin-top: 5px;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.login_join > button {
-position :fixed;
+.k_lecture .image_box ul li p {
+    font-size: 15px;
+
+}
+.k_lecture .image_box ul li p span {
+    color: blue;
+    margin-right: 10px;
+}
+.k_lecture .image_box ul li p .cancel {
+    text-decoration: line-through;
+    color: #888888;
+}
+.k_lecture .image_box ul li img{
+    transition-duration: 0.3s;
+    margin-bottom: 10px;
+}
+.k_lecture .image_box ul li img:hover {
+    transform: scale(1.1);
+    transition-duration: 0.7s;
+}
+
+/* footer */
+footer {
+  margin: 0 auto;
+}
+footer .fot_ground {
+  margin: 0 auto;
+    color: #fff;
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background: rgb(10, 22, 34);
+    color: #fff;
+}
+.fot_ground p {
+  font-size: 13px;
+  text-align: center;
+  bottom: 15%;
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.fot_ground .fot-p {
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.fot_ground .fot_a {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 30px;
+
+}
+.fot_ground .fot_a ul li{
+  display: inline-block;
+  float: left;
+  margin-right: 7px;
+}
+.fot_ground .fot_a ul li a{
+  font-size: 13px;
+  margin-top: 30px;
+}
+.kh_logo_fot {
+  position: absolute;
+  right: 20%;
+  bottom: 20%;
+}
+.kh_logo_fot img {
+  border-radius: 100px;
+  width: 70px;
 }

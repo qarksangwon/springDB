@@ -2,9 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/signin.css">
     <title>로그인</title>
 </head>
 <body>
+<header>
+    <div class="header_left">
+        <h1 class="logo"><a href="/acos/main"><img src="/img/logo_img.png" alt=""></a></h1>
+        <div class="nav">
+            <ul class="header_nav">
+                <li><a href="#">상담 신청</a></li>
+                <li><a href="#">수강 신청</a></li>
+                <li><a href="#">Q&A</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="header_right">
+        <section>
+            <form action="https://khedu.co.kr" method="GET">
+                <input type="text" name="query" placeholder="">
+                <button type="submit" id="search-btn"><img src="/img/search_icon.png" alt=""></button>
+            </form>
+        </section>
+        <div class="login_join">
+            <ul>
+                <li><a href="#">로그인</a></li>
+                <li>|</li>
+                <li><a href="#">회원가입</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
 <h1>로그인</h1>
 <input type="checkbox" id="changeLabelCheckbox">
 <label for="changeLabelCheckbox">비회원 로그인</label>
