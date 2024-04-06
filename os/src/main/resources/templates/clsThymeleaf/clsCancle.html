@@ -38,9 +38,9 @@
       <form th:action="@{/acos/logout}" method="get" th:if="${#session != null and #session.getAttribute('InUser') != null}">
         <select onchange="window.location.href=this.value">
           <option disabled selected th:text="${#session.getAttribute('InUser').name+ '님 안녕하세요!'}"></option>
-          <option th:if="${#session.getAttribute('InUser') != null}" value="/acos/change">내 정보 수정</option>
+          <option th:if="${#session.getAttribute('InUser') != null and #session.getAttribute('InUser').id != 'master'}" value="/acos/change">내 정보 수정</option>
           <option value="/acos/logout">로그아웃</option>
-          <option value="/acos/withdraw">회원탈퇴</option>
+          <option th:if="${#session.getAttribute('InUser').id != 'master'}" value="/acos/withdraw">회원탈퇴</option>
         </select>
       </form>
       <form th:action="@{/acos/logout}" method="get" th:if="${#session != null and #session.getAttribute('InNotUser') != null}">

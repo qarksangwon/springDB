@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/acos")
@@ -69,5 +70,38 @@ public class EnrolController{
             return "enrolment/enrOK";
         }
     }
+
+    @GetMapping("/cancelEnr")
+    public String cancelView(Model model)throws SQLException{
+        List<EnrolmentVo> enrList = null;
+        UserVO user = (UserVO) session.getAttribute("InUser");
+        NotUserVO nUser = (NotUserVO) session.getAttribute("InNotUser");
+        if(user != null){
+            enrList = eDao.allEnrList(user);
+        }else if(nUser != null){
+            enrList = eDao.allEnrList(nUser);
+        }
+        model.addAttribute("enrolmentList",enrList);
+        return "enrolment/myEnrol_page";
+    }
+    @PostMapping("/cancelEnr")
+    public String cancelEnr(@ModelAttribute("cancelDate")String enrDate,Model model)throws SQLException{
+        UserVO user = (UserVO) session.getAttribute("InUser");
+        NotUserVO nUser = (NotUserVO) session.getAttribute("InNotUser");
+        int rst = 0;
+        if(user != null){
+            rst = eDao.deleteEnr(user,enrDate);
+        }else if(nUser != null){
+            rst = eDao.deleteEnr(nUser,enrDate);
+        }
+        if(rst == 1){
+            model.addAttribute("Message","상담 취소 완료.");
+            return "enrolment/enrOK";
+        }else{
+            model.addAttribute("Message", "상담 취소 실패");
+            return "enrolment/enrOK";
+        }
+    }
+
 
 }

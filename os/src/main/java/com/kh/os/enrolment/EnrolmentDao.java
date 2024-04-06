@@ -121,10 +121,15 @@ import java.util.List;
 
         public int deleteEnr(UserVO user, String date) throws SQLException{
             conn  = DbConn.getConnection();
-            String q = "DELETE FROM ENROLMENT WHERE ID = ? AND ENRDATE = ?";
+            String q = null;
+            if(user.getId().equals("master")) q = "DELETE FROM ENROLMENT WHERE ENRDATe = ?";
+            else q = "DELETE FROM ENROLMENT WHERE ID = ? AND ENRDATE = ?";
             pStmt = conn.prepareStatement(q);
-            pStmt.setString(1, user.getId());
-            pStmt.setString(2,date );
+            if(user.getId().equals("master")) pStmt.setString(1,date);
+            else {
+                pStmt.setString(1, user.getId());
+                pStmt.setString(2, date);
+            }
             int rst = pStmt.executeUpdate();
             DbConn.close(pStmt);
             DbConn.close(conn);
