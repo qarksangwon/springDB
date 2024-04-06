@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상담 예약</title>
+    <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/nav.css">
+
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+</head>
+<body>
+<div id="wrap">
+    <header>
+        <div class="header_left">
+            <h1 class="logo"><a href="/acos/main"><img src="/img/logo_img.png" alt=""></a></h1>
+            <div class="nav">
+                <ul class="header_nav">
+                    <li><a href="/acos/enrolment">상담 신청</a></li>
+                    <li><a href="/acos/select">수강 신청</a></li>
+                    <li><a href="/acos/qapage">Q&A</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header_right">
+            <section>
+                <form action="https://khedu.co.kr" method="GET">
+                    <input type="text" name="query" placeholder="">
+                    <button type="submit" id="search-btn"><img src="/img/search_icon.png" alt=""></button>
+                </form>
+            </section>
+            <div class="login_join">
+                <form th:action="@{/acos/signin}" method="get" th:if="${#session == null}">
+                    <select onchange="window.location.href=this.value">
+                        <option disabled selected >로그인 | 회원가입</option>
+                        <option value="/acos/signin">로그인</option>
+                        <option value="/acos/signup">회원가입</option>
+                        <option value="/acos/findpassword">비밀번호 찾기</option>
+                    </select>
+                </form>
+                <form th:action="@{/acos/logout}" method="get" th:if="${#session != null and #session.getAttribute('InUser') != null}">
+                    <select onchange="window.location.href=this.value">
+                        <option disabled selected th:text="${#session.getAttribute('InUser').name+ '님 안녕하세요!'}"></option>
+                        <option th:if="${#session.getAttribute('InUser') != null}" value="/acos/change">내 정보 수정</option>
+                        <option value="/acos/logout">로그아웃</option>
+                        <option value="/acos/withdraw">회원탈퇴</option>
+                    </select>
+                </form>
+                <form th:action="@{/acos/logout}" method="get" th:if="${#session != null and #session.getAttribute('InNotUser') != null}">
+                    <select onchange="window.location.href=this.value">
+                        <option disabled selected th:text="${#session.getAttribute('InNotUser').name+ '님 안녕하세요!'}"></option>
+                        <option value="/acos/signup">회원가입</option>
+                        <option value="/acos/logout">로그아웃</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+    </header>
+<h2>예약하기</h2>
+<form th:action="@{/acos/reservation}" method="post">
+    <label for="date">예약 날짜 선택</label><br>
+    <input type="date" id="date" th:name="date"><br>
+    <select id="time" th:name = "time">
+        <option th:value ="11">11시</option>
+        <option th:value ="13">13시</option>
+        <option th:value ="15">15시</option>
+    </select><br>
+    <p>문의 내용</p>
+    <select id="inquiry" th:name = "inquiry">
+        <option th:value ="'강의 관련 상담'">강의 관련 상담</option>
+        <option th:value ="'개인 상담'">개인 상담</option>
+    </select>
+    <br>
+    <input type="submit" value="예약하기">
+</form>
+<script>
+    // 예약 날짜 입력 필드에 날짜 형식을 제어하는 JavaScript 코드
+    window.onload = function() {
+        var dateInput = document.getElementById('date');
+        dateInput.addEventListener('input', function() {
+            var enteredDate = new Date(this.value);
+            var today = new Date();
+            // 현재 날짜보다 이전 날짜를 선택한 경우, 입력한 날짜를 초기화
+            if (enteredDate < today) {
+                alert('예약은 오늘 이후 날짜만 가능합니다.');
+                this.value = '';
+            }
+        });
+    };
+</script>
+</body>
+</html>

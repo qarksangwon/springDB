@@ -87,6 +87,10 @@ public class UserController {
 
     @PostMapping("/signup")
     public String signUpOK(@ModelAttribute("userInfo")UserVO user, Model model) throws SQLException{
+        if(user.getId().contains("-")){
+            model.addAttribute("Message","아이디에 -이 들어갈 수 없습니다.");
+            return "user/changeCheck";
+        }
         int suRst = uDao.signUp(user);
         if(suRst == 1) return "redirect:/acos/main";
         else{

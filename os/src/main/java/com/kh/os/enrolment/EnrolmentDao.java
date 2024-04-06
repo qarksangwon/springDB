@@ -72,12 +72,12 @@ import java.util.List;
             return list;
         }
 
-        public int insertEnr(UserVO user, String date, String txt) throws SQLException {
+        public int insertEnr(UserVO user, EnrolmentVo enr) throws SQLException {
             conn = DbConn.getConnection();
             String q;
             q = "SELECT * FROM ENROLMENT WHERE ENRDATE = ?";
             pStmt = conn.prepareStatement(q);
-            pStmt.setString(1, date);
+            pStmt.setString(1, enr.getDate());
             rs = pStmt.executeQuery();
             if (rs.next()){
                 return 0;
@@ -86,20 +86,20 @@ import java.util.List;
             pStmt = conn.prepareStatement(q);
             // 여기서 ?에 해당하는 값들을 설정
             pStmt.setString(1,user.getName() );
-            pStmt.setString(2, date);
-            pStmt.setString(3,txt );
+            pStmt.setString(2, enr.getDate());
+            pStmt.setString(3,enr.getInquiry() );
             pStmt.setString(4, user.getId());
             int rst = pStmt.executeUpdate();
             DbConn.close(pStmt);
             DbConn.close(conn);
             return rst;
         }
-        public int insertEnr(NotUserVO notUser,String date, String txt ) throws SQLException {
+        public int insertEnr(NotUserVO notUser,EnrolmentVo enr ) throws SQLException {
             conn = DbConn.getConnection();
             String q;
             q = "SELECT * FROM ENROLMENT WHERE ENRDATE = ?";
             pStmt = conn.prepareStatement(q);
-            pStmt.setString(1, date);
+            pStmt.setString(1, enr.getDate());
             rs = pStmt.executeQuery();
             if (rs.next()){
                 return 0;
@@ -109,9 +109,9 @@ import java.util.List;
             pStmt = conn.prepareStatement(q);
             // 여기서 ?에 해당하는 값들을 설정
             pStmt.setString(1, notUser.getName());
-            pStmt.setString(2,date );
+            pStmt.setString(2,enr.getDate() );
             pStmt.setString(3, notUser.getPhoneNumber());
-            pStmt.setString(4, txt);
+            pStmt.setString(4, enr.getInquiry());
             // 쿼리 실행
             int rst = pStmt.executeUpdate();
             DbConn.close(pStmt);
