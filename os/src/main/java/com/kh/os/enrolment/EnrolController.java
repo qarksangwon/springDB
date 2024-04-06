@@ -42,12 +42,12 @@ public class EnrolController{
                               @ModelAttribute("inquiry")String inquiry,Model model)throws SQLException {
         if(date.equals("")){
             model.addAttribute("Message","날짜를 선택해 주세요");
-            return "enrolment/reservationOK";
+            return "enrolment/enrOK";
         }
         String[] dateArr = date.split("-");
         if(Integer.parseInt(dateArr[0])>2999){
             model.addAttribute("Message","3000년도 이후에 오시게요?");
-            return "enrolment/reservationOK";
+            return "enrolment/enrOK";
         }
         String enrDate = date+"-"+time;
         UserVO user = (UserVO) session.getAttribute("InUser");
@@ -63,10 +63,10 @@ public class EnrolController{
         }
         if(rst == 1){
             model.addAttribute("Message","상담 신청 완료.");
-            return "enrolment/reservationOK";
+            return "enrolment/enrOK";
         }else{
             model.addAttribute("Message","이미 신청한 사람이 있습니다.");
-            return "enrolment/reservationOK";
+            return "enrolment/enrOK";
         }
     }
 
