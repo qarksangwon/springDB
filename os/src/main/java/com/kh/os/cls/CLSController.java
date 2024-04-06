@@ -4,6 +4,7 @@ import com.kh.os.cls.ClassDao;
 import com.kh.os.cls.ClassVo;
 import com.kh.os.user.UserVO;
 import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,15 +12,23 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
-@RequestMapping("/classtb")
+@RequestMapping("/acos")
 public class CLSController {
 
-    static final UserVO user = new UserVO("test","1234","테스트1","취미가 뭔가요?","운동");
+    @Autowired
+    private HttpSession session;
     @GetMapping("/select")
     public String selectClasstb(Model model) {
+        Object sessionVal = session.getAttribute("InUser");
+        if(sessionVal == null) {
+            session.invalidate();
+            return "redirect:/acos/signin";
+        }
         ClassDao dao = new ClassDao();
         List<ClassVo> cls = dao.ClassSelect();
         model.addAttribute("CLASS", cls);
@@ -30,6 +39,7 @@ public class CLSController {
     @PostMapping("/apply")
     public String selectApply(@ModelAttribute("applys") ClassVo cvo) {
         ClassDao cDao = new ClassDao();
+        UserVO user = (UserVO) session.getAttribute("InUser");
         int result = cDao.applyForClass(cvo, user);
 
         if (result == 0) {
@@ -44,6 +54,7 @@ public class CLSController {
     @GetMapping("/myclass")
     public String showMyClasses(Model model) {
         ClassDao dao = new ClassDao();
+        UserVO user = (UserVO) session.getAttribute("InUser");
         List<ApplyVo> myclasses = dao.getAppliedClasses(user);
         model.addAttribute("myclasses",myclasses);
         return "clsThymeleaf/myclass";

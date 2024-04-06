@@ -44,7 +44,7 @@
     </thead>
     <tbody>
     <tr th:each="classtb : ${CLASS}">
-        <form th:action="@{/classtb/apply}" method="post" th:object="${applys}">
+        <form th:action="@{/acos/apply}" method="post" th:object="${applys}">
             <td><input type="submit" value="신청" onclick="return confirmApply()" class="apply-button"></td>
             <td><input type="hidden" name="openNum" th:name="openNum" th:value="${classtb.openNum}"><span
                     th:text="${classtb.openNum}"></span></td>
@@ -63,7 +63,7 @@
     </tbody>
 </table>
 
-<form th:action="@{/classtb/myclass}" method="get" style="margin-top: 20px;">
+<form th:action="@{/acos/myclass}" method="get" style="margin-top: 20px;">
     <button type="submit">나의 수업 조회</button>
     <script>
         function confirmApply() {
@@ -71,5 +71,6 @@
             return result;
         }
     </script>
+</form>
 </body>
 </html>

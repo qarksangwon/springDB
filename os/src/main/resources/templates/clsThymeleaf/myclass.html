@@ -38,14 +38,14 @@
         <thead>
         <tr>
             <th>신청 취소</th>
-            <th>ID</th>
+            <th>수강생 이름</th>
             <th>수업 이름</th>
             <th>강의실</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="myclass : ${myclasses}">
-            <form th:action="@{/classtb/myclass}" method="post">
+            <form th:action="@{/acos/myclass}" method="post">
                 <td>
                     <input type="hidden" th:name="id" th:value="${myclass.id}">
                     <input type="hidden" th:name="title" th:value="${myclass.title}">
@@ -60,7 +60,7 @@
 
     </table>
 </div>
-<form th:action="@{/classtb/select}"  method="get"  style="margin-top: 20px;">
+<form th:action="@{/acos/select}"  method="get"  style="margin-top: 20px;">
     <button type="submit">돌아가기</button>
 </form>
 <script>

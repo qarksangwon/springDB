@@ -114,6 +114,39 @@ public class UserController {
         return "redirect:/acos/main";
     }
 
+    @GetMapping("/findpassword")
+    public String findpasswordView(Model model){
+        model.addAttribute("userID",new String());
+        return "user/findpassword";
+    }
+
+    @PostMapping("/findpassword")
+    public String findpasswordCheck(@ModelAttribute("userID")String userid, Model model) throws SQLException{
+        UserVO user = new UserVO();
+        user.setId(userid);
+        UserVO userCheck = uDao.userInfo(user);
+        if(userCheck == null){
+            model.addAttribute("Message","없는 아이디 입니다.");
+            return "user/changeCheck";
+        }else {
+            model.addAttribute("userInfo",userCheck);
+            model.addAttribute("userCheck", new UserVO());
+            return "user/fpCheck";
+        }
+    }
+
+
+    @PostMapping("/fpCheck")
+    public String findpasswordOK(@ModelAttribute("userInfo")UserVO user, Model model) throws  SQLException{
+        UserVO infoCheck = uDao.userInfo(user);
+        if(infoCheck.getAnswer().equals(user.getAnswer())){
+            model.addAttribute("userInfo",user);
+            return "user/passwordChange";
+        }else{
+            model.addAttribute("Message", "질문의 답변이 틀렸습니다.");
+            return "user/changeCheck";
+        }
+    }
 
     @GetMapping("/logout")
     public String logout(){
