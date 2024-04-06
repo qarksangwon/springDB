@@ -122,9 +122,11 @@ public class ClassDao {
         List<ApplyVo> appliedClasses = new ArrayList<>();
         try {
             conn = DbConn.getConnection();
-            String sql = "SELECT * FROM APPLYUSER WHERE ID = ?";
+            String sql = "";
+            if(user.getId().equals("master")) sql = "SELECT * FROM APPLYUSER";
+            else sql = "SELECT * FROM APPLYUSER WHERE ID = ?";
             pStmt = conn.prepareStatement(sql);
-            pStmt.setString(1, user.getId());
+            if(!user.getId().equals("master")) pStmt.setString(1, user.getId());
             rs = pStmt.executeQuery();
 
             while (rs.next()) {

@@ -88,7 +88,7 @@
 </table>
 
 <form th:action="@{/acos/myclass}" method="get" style="margin-top: 20px;">
-    <button type="submit">나의 수업 조회</button>
+    <button type="submit" th:if="${#session.getAttribute('InUser').id == 'master'}" th:text="${'전체 수업 조회'}">나의 수업 조회</button>
     <script>
         function confirmApply() {
             var result = confirm("신청하시겠습니까?");

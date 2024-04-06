@@ -47,6 +47,7 @@ public class CLSController {
     public String selectApply(@ModelAttribute("applys") ClassVo cvo) {
         ClassDao cDao = new ClassDao();
         UserVO user = (UserVO) session.getAttribute("InUser");
+        if(user.getId().equals("master")) return "redirect:/acos/select";
         int result = cDao.applyForClass(cvo, user);
 
         if (result == 0) {
