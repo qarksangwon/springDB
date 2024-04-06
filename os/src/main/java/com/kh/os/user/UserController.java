@@ -32,13 +32,26 @@ public class UserController {
         NotUserVO nUserVO = null;
         int rs;
         if(userCheck.getUserCheck().equals("0")){
+            if(userCheck.getVal1().length()>15){
+                model.addAttribute("errorMessage", "없는 아이디 입니다.");
+                return "user/signinCheck";
+            }
             userVO = new UserVO(userCheck.getVal1(),userCheck.getVal2());
             rs = uDao.signIn(userVO);
             if(rs==1) {
                 userVO =uDao.userInfo(userVO);
+                session.invalidate();
                 session.setAttribute("InUser",userVO);
             }
         }else{
+            if(userCheck.getVal1().length()>13){
+                model.addAttribute("errorMessage", "휴대폰 번호를 정확히 입력해 주세요.(예시 : 010-1234-1234)");
+                return "user/signinCheck";
+            }
+            if(userCheck.getVal2().length()>10){
+                model.addAttribute("errorMessage", "이름이 너무 깁니다.");
+                return "user/signinCheck";
+            }
             nUserVO = new NotUserVO(userCheck.getVal1(),userCheck.getVal2());
             rs = uDao.signIn(nUserVO);
             if(rs==1) {
@@ -73,11 +86,12 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String signUpOK(@ModelAttribute("userInfo")UserVO user) throws SQLException{
+    public String signUpOK(@ModelAttribute("userInfo")UserVO user, Model model) throws SQLException{
         int suRst = uDao.signUp(user);
         if(suRst == 1) return "redirect:/acos/main";
         else{
-            return "redirect:/acos/signup";
+            model.addAttribute("Message","이미 사용중인 아이디 입니다.");
+            return "user/changeCheck";
         }
     }
 
@@ -130,7 +144,6 @@ public class UserController {
             return "user/changeCheck";
         }else {
             model.addAttribute("userInfo",userCheck);
-            model.addAttribute("userCheck", new UserVO());
             return "user/fpCheck";
         }
     }
@@ -141,12 +154,27 @@ public class UserController {
         UserVO infoCheck = uDao.userInfo(user);
         if(infoCheck.getAnswer().equals(user.getAnswer())){
             model.addAttribute("userInfo",user);
+            model.addAttribute("newUser", new UserVO());
             return "user/passwordChange";
         }else{
             model.addAttribute("Message", "질문의 답변이 틀렸습니다.");
             return "user/changeCheck";
         }
     }
+    @PostMapping("/pwChange")
+    public String pwChange(@ModelAttribute("newUser")UserVO user,@ModelAttribute("pwString")String pw, Model model)throws SQLException{
+        if(pw.length()>15){
+            model.addAttribute("Message","사용할 수 없는 비밀번호 입니다.");
+            return "user/changeCheck";
+        }
+        user.setPassword(pw);
+        int rst = uDao.findPassword(user);
+        if(rst == 0){
+            model.addAttribute("Message","사용할 수 없는 비밀번호 입니다.");
+            return "user/changeCheck";
+        }else return "redirect:/acos/main";
+    }
+
 
     @GetMapping("/logout")
     public String logout(){

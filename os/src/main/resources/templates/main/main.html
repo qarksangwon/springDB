@@ -53,6 +53,7 @@
                 <form th:action="@{/acos/logout}" method="get" th:if="${#session != null and #session.getAttribute('InNotUser') != null}">
                     <select onchange="window.location.href=this.value">
                         <option disabled selected th:text="${#session.getAttribute('InNotUser').name+ '님 안녕하세요!'}"></option>
+                        <option value="/acos/signup">회원가입</option>
                         <option value="/acos/logout">로그아웃</option>
                     </select>
                 </form>

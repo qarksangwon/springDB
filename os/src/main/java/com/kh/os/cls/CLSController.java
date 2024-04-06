@@ -26,8 +26,15 @@ public class CLSController {
     public String selectClasstb(Model model) {
         Object sessionVal = session.getAttribute("InUser");
         if(sessionVal == null) {
-            session.invalidate();
-            return "redirect:/acos/signin";
+            sessionVal = session.getAttribute("InNotUser");
+            if(sessionVal == null) {
+                session.invalidate();
+                return "redirect:/acos/signin";
+            }
+            else{
+                model.addAttribute("errorMessage","로그인 후 이용 가능합니다.");
+                return "user/signinCheck";
+            }
         }
         ClassDao dao = new ClassDao();
         List<ClassVo> cls = dao.ClassSelect();

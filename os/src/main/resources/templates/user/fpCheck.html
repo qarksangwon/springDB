@@ -2,9 +2,57 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <title>비밀번호 찾기</title>
 </head>
 <body>
+<header>
+    <div class="header_left">
+        <h1 class="logo"><a href="/acos/main"><img src="/img/logo_img.png" alt=""></a></h1>
+        <div class="nav">
+            <ul class="header_nav">
+                <li><a href="/acos/enrolment">상담 신청</a></li>
+                <li><a href="/acos/select">수강 신청</a></li>
+                <li><a href="/acos/qapage">Q&A</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="header_right">
+        <section>
+            <form action="https://khedu.co.kr" method="GET">
+                <input type="text" name="query" placeholder="">
+                <button type="submit" id="search-btn"><img src="/img/search_icon.png" alt=""></button>
+            </form>
+        </section>
+        <div class="login_join">
+            <form th:action="@{/acos/signin}" method="get" th:if="${#session == null}">
+                <select onchange="window.location.href=this.value">
+                    <option disabled selected >로그인 | 회원가입</option>
+                    <option value="/acos/signin">로그인</option>
+                    <option value="/acos/signup">회원가입</option>
+                    <option value="/acos/findpassword">비밀번호 찾기</option>
+                </select>
+            </form>
+            <form th:action="@{/acos/logout}" method="get" th:if="${#session != null and #session.getAttribute('InUser') != null}">
+                <select onchange="window.location.href=this.value">
+                    <option disabled selected th:text="${#session.getAttribute('InUser').name+ '님 안녕하세요!'}"></option>
+                    <option th:if="${#session.getAttribute('InUser') != null}" value="/acos/change">내 정보 수정</option>
+                    <option value="/acos/logout">로그아웃</option>
+                    <option value="/acos/withdraw">회원탈퇴</option>
+                </select>
+            </form>
+            <form th:action="@{/acos/logout}" method="get" th:if="${#session != null and #session.getAttribute('InNotUser') != null}">
+                <select onchange="window.location.href=this.value">
+                    <option disabled selected th:text="${#session.getAttribute('InNotUser').name+ '님 안녕하세요!'}"></option>
+                    <option value="/acos/signup">회원가입</option>
+                    <option value="/acos/logout">로그아웃</option>
+                </select>
+            </form>
+        </div>
+    </div>
+</header>
 <form th:action="@{/acos/fpCheck}" th:object="${userInfo}" method="post">
     <div>
         <input type="hidden" id="id" th:name = "id" th:value="*{id}" /><span th:text="'비밀번호를 찾을 아이디 :'+ *{id}"></span>
