@@ -32,8 +32,8 @@ public class CLSController {
                 return "redirect:/acos/signin";
             }
             else{
-                model.addAttribute("errorMessage","로그인 후 이용 가능합니다.");
-                return "user/signinCheck";
+                model.addAttribute("Message","회원 가입 후 이용 가능합니다.");
+                return "user/changeCheck";
             }
         }
         ClassDao dao = new ClassDao();

@@ -5,9 +5,9 @@
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/nav.css">
-    <title>수강 신청</title>
+    <title>QA확인</title>
 </head>
-<body class="container">
+<body>
 <header>
     <div class="header_left">
         <h1 class="logo"><a href="/acos/main"><img src="/img/logo_img.png" alt=""></a></h1>
@@ -53,49 +53,9 @@
         </div>
     </div>
 </header>
-<h2>신청 가능한 수업</h2>
-<table>
-    <thead>
-    <tr>
-        <th>수강 신청</th>
-        <th>수업 번호</th>
-        <th>수업 이름</th>
-        <th>강사</th>
-        <th>강의실</th>
-        <th>신청 인원</th>
-        <th>제한 인원</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="classtb : ${CLASS}">
-        <form th:action="@{/acos/apply}" method="post" th:object="${applys}">
-            <td><input type="submit" value="신청" onclick="return confirmApply()" class="apply-button"></td>
-            <td><input type="hidden" name="openNum" th:name="openNum" th:value="${classtb.openNum}"><span
-                    th:text="${classtb.openNum}"></span></td>
-            <td><input type="hidden" name="title" th:name="title" th:value="${classtb.title}"><span
-                    th:text="${classtb.title}"></span></td>
-            <td><input type="hidden" name="teacher" th:name="teacher" th:value="${classtb.teacher}"><span
-                    th:text="${classtb.teacher}"></span></td>
-            <td><input type="hidden" name="room" th:name="room" th:value="${classtb.room}"><span
-                    th:text="${classtb.room}"></span></td>
-            <td><input type="hidden" name="applicant" th:name="applicant" th:value="${classtb.applicant}"><span
-                    th:text="${classtb.applicant}"></span></td>
-            <td><input type="hidden" name="max" th:name="max" th:value="${classtb.max}"><span
-                    th:text="${classtb.max}"></span></td>
-        </form>
-    </tr>
-    </tbody>
-</table>
-
-<form th:action="@{/acos/myclass}" method="get" style="margin-top: 20px;">
-    <button type="submit" th:if="${#session.getAttribute('InUser').id == 'master'}" th:text="${'전체 수업 조회'}"></button>
-    <button type="submit" th:if="${#session.getAttribute('InUser').id != 'master'}" th:text="${'신청 수업 조회'}"></button>
-    <script>
-        function confirmApply() {
-            var result = confirm("신청하시겠습니까?");
-            return result;
-        }
-    </script>
+<p th:text = "${Message}"></p>
+<form action = "/acos/qapage" method="get">
+    <button type="submit">Q&A 페이지로 돌아가기</button>
 </form>
 </body>
 </html>
