@@ -88,6 +88,14 @@ public class UserController {
     @PostMapping("/signup")
     public String signUpOK(@ModelAttribute("userInfo")UserVO user, Model model) throws SQLException{
         user.setId(user.getId().trim());
+        user.setPassword(user.getPassword().trim());
+        user.setName(user.getName().trim());
+        user.setAnswer(user.getAnswer().trim());
+        if(user.getId().isEmpty()||user.getPassword().isEmpty()||user.getName().isEmpty()
+        ||user.getAnswer().isEmpty()){
+            model.addAttribute("Message","들어가지 않은 값이 있습니다..");
+            return "user/changeCheck";
+        }
         if(user.getId().contains("-")){
             model.addAttribute("Message","아이디에 -이 들어갈 수 없습니다.");
             return "user/changeCheck";
@@ -113,6 +121,15 @@ public class UserController {
     }
     @PostMapping("/change")
     public String changeOK(@ModelAttribute("userInfo")UserVO user, Model model) throws SQLException{
+        user.setId(user.getId().trim());
+        user.setPassword(user.getPassword().trim());
+        user.setName(user.getName().trim());
+        user.setAnswer(user.getAnswer().trim());
+        if(user.getId().isEmpty()||user.getPassword().isEmpty()||user.getName().isEmpty()
+                ||user.getAnswer().isEmpty()){
+            model.addAttribute("Message","들어가지 않은 값이 있습니다..");
+            return "user/changeCheck";
+        }
         int rst = uDao.updateUser(user);
         if(rst == 1) {
             session.invalidate();
