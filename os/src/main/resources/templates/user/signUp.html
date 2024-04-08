@@ -62,7 +62,7 @@
     <div class = "signup_container">
     <form th:action="@{/acos/signup}" th:object="${userInfo}" method="post">
         <div class="id_search">
-            <input type="text" id="id" th:field="*{id}" placeholder="ID"/>
+            <input type="text" id="id" pattern="[A-Za-z]+" title="영어만 입력하세요" th:field="*{id}" placeholder="ID"/>
         </div>
         <div class ="pw_search">
             <input type="password" id="password" th:field="*{password}" placeholder="PW" />

@@ -92,10 +92,11 @@ public class UserController {
             model.addAttribute("Message","아이디에 -이 들어갈 수 없습니다.");
             return "user/changeCheck";
         }
-        if(user.getId().length()<4){
-            model.addAttribute("Message","아이디는 4자리 이상 사용해야 합니다.");
+        if(user.getId().length()<6 || user.getId().length()>10){
+            model.addAttribute("Message","아이디는 6자리 이상 10자리 이하 사용해야 합니다.");
             return "user/changeCheck";
         }
+
         int suRst = uDao.signUp(user);
         if(suRst == 1) return "redirect:/acos/main";
         else{
