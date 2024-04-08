@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/qaMain.css">
     <title>Q&A</title>
 </head>
 <body>
@@ -53,17 +53,23 @@
         </div>
     </div>
 </header>
-<h1>Q&A</h1>
-<ul>
-    <li>
-        <a href="/acos/qaView" >질문 조회</a>
-    </li>
-    <li th:unless="${user == 'master'}">
-        <a href="/acos/questionPage" >질문 하기</a>
-    </li>
-    <li th:unless="${user != 'master'}">
-        <a href="/acos/answerList" >답변한 내용 조회</a>
-    </li>
-</ul>
+<div class="login_wrap">
+    <div class="login_container">
+        <h2>Q&A</h2>
+        <div class="qa_box">
+            <ul>
+                <li class="qu_inquiry">
+                    <a href="/acos/qaView" >질문 조회</a>
+                </li>
+                <li class="qa_ask" th:unless="${user == 'master'}">
+                    <a href="/acos/questionPage" >질문 하기</a>
+                </li>
+                <li class="qa_master" th:unless="${user != 'master'}">
+                    <a href="/acos/answerList" >답변한 내용 조회</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 </body>
 </html>
