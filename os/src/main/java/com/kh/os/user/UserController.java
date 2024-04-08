@@ -87,8 +87,13 @@ public class UserController {
 
     @PostMapping("/signup")
     public String signUpOK(@ModelAttribute("userInfo")UserVO user, Model model) throws SQLException{
+        user.setId(user.getId().trim());
         if(user.getId().contains("-")){
             model.addAttribute("Message","아이디에 -이 들어갈 수 없습니다.");
+            return "user/changeCheck";
+        }
+        if(user.getId().length()<4){
+            model.addAttribute("Message","아이디는 4자리 이상 사용해야 합니다.");
             return "user/changeCheck";
         }
         int suRst = uDao.signUp(user);
