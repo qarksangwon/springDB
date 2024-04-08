@@ -109,7 +109,7 @@ public class UserController {
         if(suRst == 1) return "redirect:/acos/main";
         else{
             model.addAttribute("Message","이미 사용중인 아이디 입니다.");
-            return "user/changeCheck";
+            return "user/signupCheck";
         }
     }
 
