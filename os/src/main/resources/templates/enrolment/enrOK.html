@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/check.css">
     <title>상담 확인</title>
 </head>
 <body>
@@ -53,9 +54,15 @@
         </div>
     </div>
 </header>
-<p th:text = "${Message}"></p>
-<form action = "/acos/enrolment" method="get">
-    <button type="submit">상담 페이지로 돌아가기</button>
-</form>
+<div class = "check_wrap">
+    <div class ="check_container">
+        <div class = "message">
+            <p th:text = "${Message}"></p>
+        </div>
+        <form action = "/acos/enrolment" method="get">
+            <button class = "check_btn" type="submit">상담 페이지로 돌아가기</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>
