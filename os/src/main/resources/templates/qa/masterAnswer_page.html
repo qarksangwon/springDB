@@ -16,6 +16,7 @@
                 <li><a href="/acos/enrolment">상담 신청</a></li>
                 <li><a href="/acos/select">수강 신청</a></li>
                 <li><a href="/acos/qapage">Q&A</a></li>
+                <link rel="stylesheet" href="/css/styles.css">
             </ul>
         </div>
     </div>
@@ -53,6 +54,8 @@
         </div>
     </div>
 </header>
+
+<div class="container">
 <h2>Q&A 내역 조회</h2>
 <table>
     <tr>
@@ -70,9 +73,9 @@
     </th:block>
 </table>
 <form th:action="@{/acos/qapage}"  method="get"  style="margin-top: 20px;">
-    <button type="submit">돌아가기</button>
+    <button type="submit" class="apply-button custom-button">돌아가기</button>
 </form>
 
-
+</div>
 </body>
 </html>
