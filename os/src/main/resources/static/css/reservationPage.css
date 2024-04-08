@@ -1,0 +1,216 @@
+* {margin: 0; padding: 0;}
+
+body {font-family: 'Noto Sans KR', sans-serif; font-weight: 400;  color: #585858;width: 100%;height: 100%;}
+
+header {
+    width: 1920px;
+    min-width: 1920px;
+    height: 80px;
+    top: 10px;
+    position: fixed;
+    position: relative;
+}
+header .header_left {
+    position: relative;
+    width: 50%;
+    height: 80px;
+}
+
+/* logo */
+header .header_left > h1 {
+    position: absolute;
+    width: 200px;
+    height: 80px;
+    left: 40%;
+}
+header .header_left > h1 > a > img {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+/* nav */
+.header_left .nav {
+    position: absolute;
+    top: 40%;
+    right: 0;
+}
+.header_left .nav > ul > li {
+    margin-right: 40px;
+    font-size: 18px;
+    float: left;
+    font-weight: bold;
+
+}
+.header_left .nav > ul > li:hover {
+    border-bottom: 2px solid #6568f7;
+    color: #6568f7;
+    transform: scale(1.1);
+
+}
+/* header_right */
+header .header_right {
+    position: relative;
+    width: 50%;
+    height: 80px;
+    left: 50%;
+    bottom: 100%;
+}
+header .header_right form {
+    display: inline-block;
+    height: 80px;
+
+}
+header .header_right section {
+    position: relative;
+    width: 260px;
+    height: 80px;
+    left: 10px;
+}
+header .header_right input {
+    position: absolute;
+    width: 260px;
+    height: 40px;
+    top: 30%;
+    border-radius: 8px;
+    border: #fff;
+    background-color: #e7e5e5;
+
+}
+header .header_right button {
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    top: 38%;
+    right: 0;
+    margin-right: 5px;
+
+}
+#search-btn {
+    width: 30px;
+    cursor: pointer;
+    border: none;
+    background-color: #e7e5e5;
+}
+#search-btn img {
+    width: 20px;
+    height: 20px;
+}
+header .header_right .login_join {
+    position: absolute;
+    right: 40%;
+    top: 30%;
+}
+.login_join select {
+    width : 200px;
+    height: 40px;
+    font-size : 15px;
+    padding: 5px;
+    appearance: none;
+    cursor: pointer;
+    font-family:'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    color: #585858;
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+}
+
+.login_wrap {
+    background: #e9e8e8;
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+    height: 200px;
+
+}
+.login_wrap .login_container {
+    position: absolute;
+    width: 30%;
+    height: 400px;
+    box-shadow: 5px 5px 5px gray;
+    border: 1px solid gray;
+    background: #fff;
+    border-radius: 20px;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+}
+.login_wrap .login_container h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 예약 날짜 */
+.reservation_time {
+        position: absolute;
+        text-align: center;
+        width: 80%;
+        height: 20%;
+        font-size: 20px;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+}
+.reservation_time label {
+    font-size:18px;
+}
+.reservation_time input {
+    position: absolute;
+    width: 200px;
+    height: 30px;
+    top: 40%;
+    left: 15%;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+}
+.reservation_time select {
+    width: 100px;
+    height: 35px;
+    position: absolute;
+    right: 17%;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    bottom: 16%;
+}
+
+.reser_detail {
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    height: 15%;
+    font-size: 20px;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.reser_detail .inquiry {
+    text-align: center;
+}
+.reser_detail label {
+    font-size:18px;
+}
+.reser_detail select {
+        position: absolute;
+        text-align: center;
+        width: 80%;
+        height: 20%;
+        font-size: 15px;
+        top: 47%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 250px;
+        height: 40px;
+}
+.reser_button {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.reser_button input {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size:18px;
+    width: 200px;
+    height: 40px;
+}
