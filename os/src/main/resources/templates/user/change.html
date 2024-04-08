@@ -62,11 +62,11 @@
     </div>
     <div>
         <label for="password">Password</label>
-        <input type="password" id="password" th:name="password" th:placeholder="*{password}" />
+        <input type="password" id="password" pattern="[a-zA-Z0-9]+" title="영문자, 숫자만 입력하세요." th:name="password" th:placeholder="*{password}" />
     </div>
     <div>
         <label for="name">이름</label>
-        <input type="text" id="name" th:name="name" th:placeholder="*{name}" />
+        <input type="text" id="name" pattern="[a-zA-Z가-힣]+" title="한글, 영문자만 입력하세요." th:name="name" th:placeholder="*{name}" />
     </div>
     <div>
         <label for="question">본인확인 질문</label>
@@ -78,7 +78,7 @@
     </div>
     <div>
         <label for="answer">답변</label>
-        <input type="text" id="answer" th:name="answer" th:placeholder="*{answer}" />
+        <input type="text" id="answer" pattern="[a-zA-Z0-9가-힣]+" title="한글, 영문자, 숫자만 입력하세요." th:name="answer" th:placeholder="*{answer}" />
     </div>
     <div>
         <button type="submit">변경</button>

@@ -57,7 +57,7 @@
 <form th:action="@{/acos/answer}" method="post">
     <input type="hidden" th:name="u" th:value="*{u}"><span th:text="*{u + '의 질문'}"></span><br>
     <input type="hidden" th:name="q" th:value="*{q}"><span th:text="*{q}"></span>
-    <textarea name="a" maxlength="60" placeholder="답변을 60자 이내로 입력해주세요"></textarea>
+    <textarea name="a" maxlength="60" pattern="[a-zA-Z0-9가-힣]+" title="한글, 영문자, 숫자만 입력하세요." placeholder="답변을 60자 이내로 입력해주세요"></textarea>
     <input type="submit" value="답변하기">
 </form>
 </form>

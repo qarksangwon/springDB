@@ -65,10 +65,10 @@
             <input type="text" id="id" pattern="[A-Za-z]+" title="영어만 입력하세요" th:field="*{id}" placeholder="ID"/>
         </div>
         <div class ="pw_search">
-            <input type="password" id="password" th:field="*{password}" placeholder="PW" />
+            <input type="password" id="password"  pattern="[A-Za-z0-9]+" title="영문자와 숫자만 입력하세요." th:field="*{password}" placeholder="PW" />
         </div>
         <div class ="name_search">
-            <input type="text" id="name" th:field="*{name}" placeholder="이름"/>
+            <input type="text" id="name" pattern="[A-Za-z가-힣]" title="영어와 한글만 입력하세요." th:field="*{name}" placeholder="이름"/>
         </div>
         <div class="question_search">
             <label for="question">본인확인 질문</label>
@@ -79,7 +79,7 @@
             </select>
         </div>
         <div class="answer_search">
-            <input type="text" id="answer" th:field="*{answer}" placeholder="답변" />
+            <input type="text" id="answer" pattern="[a-zA-Z0-9가-힣]+" title="한글, 영문자, 숫자만 입력하세요." th:field="*{answer}" placeholder="답변" />
         </div>
         <div class="signup_btn">
             <button type="submit">등록</button>

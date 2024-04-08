@@ -55,7 +55,7 @@
 </header>
 <h2>질문 하기</h2>
 <form th:action="@{/acos/questionPage}" th:object="${qaInfo}" method="post">
-    <textarea name="question" maxlength="60" placeholder="질문을 60자 이내로 입력해주세요"></textarea>
+    <textarea name="question" maxlength="60" pattern="[a-zA-Z0-9가-힣]+" title="한글, 영문자, 숫자만 입력하세요." placeholder="질문을 60자 이내로 입력해주세요"></textarea>
     <input type="submit" value="질문하기">
 </form>
 </form>
