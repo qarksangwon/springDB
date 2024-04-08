@@ -44,7 +44,7 @@ public class UserController {
                 session.setAttribute("InUser",userVO);
             }
         }else{
-            if(userCheck.getVal1().length()>13){
+            if(userCheck.getVal1().length()>13||!userCheck.getVal1().contains("-")){
                 model.addAttribute("errorMessage", "휴대폰 번호를 정확히 입력해 주세요.(예시 : 010-1234-1234)");
                 return "user/signinCheck";
             }
