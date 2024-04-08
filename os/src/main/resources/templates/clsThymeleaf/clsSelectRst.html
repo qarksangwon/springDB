@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/check.css">
     <title>수강 신청</title>
 </head>
 <body class="container">
@@ -53,12 +54,15 @@
         </div>
     </div>
 </header>
-<h2></h2>
-<div>
-    <h3>신청 완료 되었습니다.</h3>
-    <form th:action="@{/acos/select}" method="get">
-        <button type="submit">돌아가기</button>
-    </form>
+<div class = "check_wrap">
+    <div class ="check_container">
+        <div class = "message">
+            <p>신청 완료 되었습니다.</p>
+        </div>
+        <form th:action = "@{/acos/select}" method="get">
+            <button class = "check_btn" type="submit">돌아가기</button>
+        </form>
+    </div>
 </div>
 </body>
 </html>
