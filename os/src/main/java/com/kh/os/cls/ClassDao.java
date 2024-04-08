@@ -123,7 +123,7 @@ public class ClassDao {
         try {
             conn = DbConn.getConnection();
             String sql = "";
-            if(user.getId().equals("master")) sql = "SELECT * FROM APPLYUSER";
+            if(user.getId().equals("master")) sql = "SELECT * FROM APPLYUSER ORDER BY ROOM";
             else sql = "SELECT * FROM APPLYUSER WHERE ID = ?";
             pStmt = conn.prepareStatement(sql);
             if(!user.getId().equals("master")) pStmt.setString(1, user.getId());
