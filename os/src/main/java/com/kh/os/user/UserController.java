@@ -49,7 +49,7 @@ public class UserController {
                 return "user/signinCheck";
             }
             if(userCheck.getVal2().length()>10){
-                model.addAttribute("errorMessage", "이름이 너무 깁니다.");
+                model.addAttribute("errorMessage", "이름이 너무 깁니다."); 
                 return "user/signinCheck";
             }
             nUserVO = new NotUserVO(userCheck.getVal1(),userCheck.getVal2());
