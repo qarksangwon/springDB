@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/change.css">
     <title>정보변경</title>
 </head>
 <body>
@@ -53,37 +53,40 @@
         </div>
     </div>
 </header>
-<h1>내 정보 변경</h1>
-<h2>변경하고 싶은 내용을 변경 뒤 확인을 눌러주세요</h2>
-<form th:action="@{/acos/change}" th:object="${userInfo}" method="post">
-    <div>
-        <label for="id">ID</label>
-        <input type="hidden" th:name="id" th:value="*{id}"><span type="text" id="id" th:text="*{id}" ></span>
+<div class="login_wrap">
+    <div class="login_container">
+        <h1>내 정보 변경</h1>
+        <h2>변경하고 싶은 내용을 변경 뒤 확인을 눌러주세요</h2>
+        <form th:action="@{/acos/change}" th:object="${userInfo}" method="post">
+            <div class="id_infor">
+                <label for="id">ID</label>
+                <input type="hidden" th:name="id" th:value="*{id}"><span type="text" id="id" th:text="*{id}" ></span>
+            </div>
+            <div class="pw_infor">
+                <label for="password">Password</label>
+                <input type="password" id="password" pattern="[a-zA-Z0-9]+" title="영문자, 숫자만 입력하세요." th:name="password" th:placeholder="*{password}" />
+            </div>
+            <div  class="name_infor">
+                <label for="name">이름</label>
+                <input type="text" id="name" pattern="[a-zA-Z가-힣]+" title="한글, 영문자만 입력하세요." th:name="name" th:placeholder="*{name}" />
+            </div>
+            <div class="qust_infor">
+                <label for="question">본인확인 질문</label>
+                <select id="question" th:name="question" >
+                    <option value ="꿈이 뭔가요?">꿈이 뭔가요?</option>
+                    <option value ="꿈이 뭔가요?">취미가 뭔가요?</option>
+                    <option value ="꿈이 뭔가요?">가장 좋아하는 음식?</option>
+                </select>
+            </div>
+            <div class="answer_infor">
+                <label for="answer">답변</label>
+                <input type="text" id="answer" pattern="[a-zA-Z0-9가-힣]+" title="한글, 영문자, 숫자만 입력하세요." th:name="answer" th:placeholder="*{answer}" />
+            </div>
+            <div class="button_infor">
+                <button type="submit">변경</button>
+            </div>
+        </form>
     </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" pattern="[a-zA-Z0-9]+" title="영문자, 숫자만 입력하세요." th:name="password" th:placeholder="*{password}" />
-    </div>
-    <div>
-        <label for="name">이름</label>
-        <input type="text" id="name" pattern="[a-zA-Z가-힣]+" title="한글, 영문자만 입력하세요." th:name="name" th:placeholder="*{name}" />
-    </div>
-    <div>
-        <label for="question">본인확인 질문</label>
-        <select id="question" th:name="question" >
-            <option value ="꿈이 뭔가요?">꿈이 뭔가요?</option>
-            <option value ="꿈이 뭔가요?">취미가 뭔가요?</option>
-            <option value ="꿈이 뭔가요?">가장 좋아하는 음식?</option>
-        </select>
-    </div>
-    <div>
-        <label for="answer">답변</label>
-        <input type="text" id="answer" pattern="[a-zA-Z0-9가-힣]+" title="한글, 영문자, 숫자만 입력하세요." th:name="answer" th:placeholder="*{answer}" />
-    </div>
-    <div>
-        <button type="submit">변경</button>
-    </div>
-</form>
-
+</div>
 </body>
 </html>

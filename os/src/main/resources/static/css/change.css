@@ -1,6 +1,10 @@
 * {margin: 0; padding: 0;}
 
 body {font-family: 'Noto Sans KR', sans-serif; font-weight: 400;  color: #585858;width: 100%;height: 100%;}
+::placeholder {
+    color:#ddd;
+
+}
 
 header {
     width: 1920px;
@@ -115,7 +119,6 @@ header .header_right .login_join {
     -ms-text-align-last: center;
     -moz-text-align-last: center;
 }
-
 .login_wrap {
     background: #e9e8e8;
     width: 100%;
@@ -127,7 +130,7 @@ header .header_right .login_join {
 .login_wrap .login_container {
     position: relative;
     width: 30%;
-    height: 350px;
+    height: 500px;
     box-shadow: 5px 5px 5px gray;
     border: 1px solid gray;
     background: #fff;
@@ -136,66 +139,98 @@ header .header_right .login_join {
     top: 40%;
     transform: translateX(-50%);
 }
+
+.login_wrap .login_container h1 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 25px;
+}
 .login_wrap .login_container h2 {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
+    font-size: 20px;
 }
-.login_wrap .login_container {
-    left: 50%;
-    top: 50%;
-}
-.login_wrap .login_container form {
-    width: 200px;
-    height: 100px;
-    text-align: center;
-}
-.login_wrap .login_container textarea {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 16px;
-    height: 70px;
-    width: 73%;
-    font-family: 'Noto Sans KR', sans-serif; font-weight: 400;  color: #585858;
-}
-.user_qust {
-    position : absolute;
+.login_wrap .login_container input {
+    position:absolute;
     width: 70%;
-    height: 50px;
-    top: 35%;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow:2px 2px 2px 2px gray;
-
-
+    height: 40px;
+    right:0;
 }
-.user_qust .user_name {
+.login_container label {
+    font-size: 20px;
+    color: blue;
+}
+.login_container .id_infor {
     position: absolute;
-    top: -60%;
-    left: 0;
-    font-size:18px;
-    font-family:300;
-    color: #6568f7;
+            width: 80%;
+            height: 50px;
+            font-size: 20px;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
 }
-.user_qust span{
+.login_container .id_infor span {
     position: absolute;
-    top: 10%;
-    left: 0;
+    right: 20%;
+}
+.login_container .pw_infor {
+    position: absolute;
+            width: 80%;
+            height: 50px;
+            font-size: 20px;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+}
+.login_container .name_infor {
+    position: absolute;
+            width: 80%;
+            height: 50px;
+            font-size: 20px;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+}
+.login_container .qust_infor {
+            position: absolute;
+            width: 80%;
+            height: 50px;
+            font-size: 20px;
+            top: 60%;
+            left: 50%;
+            transform: translateX(-50%);
+}
+.login_container .qust_infor select {
+    position: absolute;
+    right:0;
+    width: 310px;
+    height: 40px;
 }
 
-.login_wrap .login_container .qa_btn {
+
+.login_container .answer_infor {
+    position: absolute;
+            width: 80%;
+            height: 50px;
+            font-size: 20px;
+            top:70%;
+            left: 50%;
+            transform: translateX(-50%);
+}
+.login_container .button_infor {
+            position: absolute;
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            bottom:10%;
+            left: 50%;
+            transform: translateX(-50%);
+}
+.button_infor button {
     position: absolute;
     bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
+    width:100px;
     height: 30px;
-}
-.login_wrap .login_container .qa_btn input {
-    width: 100px;
-    height: 30px;
-    font-size:16px;
-    font-weight: 300;
-    border-radius: 4px;
 }
