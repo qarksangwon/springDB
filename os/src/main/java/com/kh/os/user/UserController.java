@@ -164,6 +164,11 @@ public class UserController {
     @PostMapping("/findpassword")
     public String findpasswordCheck(@ModelAttribute("userID")String userid, Model model) throws SQLException{
         UserVO user = new UserVO();
+        userid = userid.trim();
+        if(userid.equals("master")){
+            model.addAttribute("Message","운영자 계정은 접근할 수 없습니다.");
+            return "user/changeCheck";
+        }
         user.setId(userid);
         UserVO userCheck = uDao.userInfo(user);
         if(userCheck == null){
