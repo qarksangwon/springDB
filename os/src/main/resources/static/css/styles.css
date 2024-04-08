@@ -10,7 +10,12 @@ body {
     width: 80%; /* 전체 컨테이너 너비 */
     margin: 150px auto 0; /* 가운데 정렬 및 상단 여백 설정 */
     overflow: auto;
+    text-align: center;
 
+}
+
+h2 {
+    text-align: left;
 }
 
 /* 테이블 스타일 설정 */
@@ -42,6 +47,7 @@ th, td {
     justify-content: flex-start; /* 왼쪽 정렬 */
     margin-top: 20px;
 }
+
 
 .apply-button.custom-button {
     margin-left: auto; /* 버튼을 오른쪽으로 이동 */
