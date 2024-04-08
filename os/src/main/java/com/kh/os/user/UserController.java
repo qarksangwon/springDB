@@ -172,7 +172,8 @@ public class UserController {
     }
     @PostMapping("/pwChange")
     public String pwChange(@ModelAttribute("newUser")UserVO user,@ModelAttribute("pwString")String pw, Model model)throws SQLException{
-        if(pw.length()>15){
+        pw = pw.trim();
+        if(pw.length()>15 || pw.isEmpty()){
             model.addAttribute("Message","사용할 수 없는 비밀번호 입니다.");
             return "user/changeCheck";
         }

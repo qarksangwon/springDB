@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/fpCheck.css">
     <title>비밀번호 찾기</title>
 </head>
 <body>
@@ -53,21 +54,23 @@
         </div>
     </div>
 </header>
-<form th:action="@{/acos/fpCheck}" th:object="${userInfo}" method="post">
-    <div>
-        <input type="hidden" id="id" th:name = "id" th:value="*{id}" /><span th:text="'비밀번호를 찾을 아이디 :'+ *{id}"></span>
+<div class ="findpassword_wrap">
+    <form th:action="@{/acos/fpCheck}" th:object="${userInfo}" method="post">
+    <div class="fp_h1_p">
+        <h1>비밀번호 찾을 아이디</h1>
+        <input type="hidden" id="id" th:name = "id" th:value="*{id}" /><p th:text="*{id}"></p>
     </div>
-    <br>
     <div>
-        <sapn id="question" th:text="*{question}" ></sapn>
         <input type="hidden" th:name="question" th:value="*{question}"/>
     </div>
-    <div>
-        <input type="text" id="answer" th:name="answer" placeholder="답변을 입력하세요." />
+    <div class ="fp_container">
+            <div class="id_search">
+                <input type="text" id="answer" th:name="answer" th:placeholder="*{question}" />
+            </div>
+            <button class="fp_btn" type="submit">답변 입력</button>
     </div>
-    <div>
-        <button type="submit">비밀번호 찾기</button>
-    </div>
-</form>
+    </form>
+</div>
+
 </body>
 </html>
