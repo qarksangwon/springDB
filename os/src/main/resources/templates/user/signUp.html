@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/signup.css">
     <title>회원가입</title>
 </head>
 <body>
@@ -53,22 +54,23 @@
         </div>
     </div>
 </header>
-<div class="form-container">
+<div class="signup_wrap">
+    <div class = "signup_h1_p">
     <h1>회원 가입</h1>
+    <p>KH정보교육원을 찾아주셔서 감사합니다.</p>
+    </div>
+    <div class = "signup_container">
     <form th:action="@{/acos/signup}" th:object="${userInfo}" method="post">
-        <div>
-            <label for="id">ID</label>
-            <input type="text" id="id" th:field="*{id}" />
+        <div class="id_search">
+            <input type="text" id="id" th:field="*{id}" placeholder="ID"/>
         </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" th:field="*{password}" />
+        <div class ="pw_search">
+            <input type="password" id="password" th:field="*{password}" placeholder="PW" />
         </div>
-        <div>
-            <label for="name">이름</label>
-            <input type="text" id="name" th:field="*{name}" />
+        <div class ="name_search">
+            <input type="text" id="name" th:field="*{name}" placeholder="이름"/>
         </div>
-        <div>
+        <div class="question_search">
             <label for="question">본인확인 질문</label>
             <select id="question" th:field="*{question}" >
                 <option value ="꿈이 뭔가요?">꿈이 뭔가요?</option>
@@ -76,14 +78,14 @@
                 <option value ="꿈이 뭔가요?">가장 좋아하는 음식?</option>
             </select>
         </div>
-        <div>
-            <label for="answer">답변</label>
-            <input type="text" id="answer" th:field="*{answer}" />
+        <div class="answer_search">
+            <input type="text" id="answer" th:field="*{answer}" placeholder="답변" />
         </div>
-        <div>
+        <div class="signup_btn">
             <button type="submit">등록</button>
         </div>
     </form>
+    </div>
 </div>
 </body>
 </html>
