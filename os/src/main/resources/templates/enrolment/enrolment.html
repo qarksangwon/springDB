@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/enrolment.css">
     <title>정보변경</title>
 </head>
 <body>
@@ -53,14 +53,20 @@
         </div>
     </div>
 </header>
-<h1>상담 서비스</h1>
-<ul>
-    <li>
-        <a href="/acos/cancelEnr" >상담 조회</a>
-    </li>
-    <li th:unless="${#session.getAttribute('InNotUser')==null and #session.getAttribute('InUser').id == 'master'}">
-        <a href="/acos/reservation" >상담 예약</a>
-    </li>
-</ul>
+<div class="login_wrap">
+    <div class="login_container">
+        <h2>상담 서비스</h2>
+        <div class="enr_box">
+            <ul>
+                <li>
+                    <a href="/acos/cancelEnr" >상담 조회</a>
+                </li>
+                <li th:unless="${#session.getAttribute('InNotUser')==null and #session.getAttribute('InUser').id == 'master'}">
+                    <a href="/acos/reservation" >상담 예약</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/reservationPage.css">
     <title>정보변경</title>
 </head>
 <body>
@@ -53,23 +53,33 @@
         </div>
     </div>
 </header>
-<h2>예약하기</h2>
-<form th:action="@{/acos/reservation}" method="post">
-    <label for="date">예약 날짜 선택</label><br>
-    <input type="date" id="date" th:name="date"><br>
-    <select id="time" th:name = "time">
-        <option th:value ="11">11시</option>
-        <option th:value ="13">13시</option>
-        <option th:value ="15">15시</option>
-    </select>
-    <label for="inquiry">문의 내용</label><br>
-    <select id="inquiry" th:name = "inquiry">
-        <option th:value ="'강의 관련 상담'">강의 관련 상담</option>
-        <option th:value ="'개인 상담'">개인 상담</option>
-    </select>
-    <br>
-    <input type="submit" value="예약하기">
-</form>
+<div class="login_wrap">
+    <div class="login_container">
+        <h2>예약하기</h2>
+        <form th:action="@{/acos/reservation}" method="post">
+            <div class="reservation_time">
+                <label for="date">예약 날짜 선택</label><br>
+                <input type="date" id="date" th:name="date"><br>
+            <select id="time" th:name = "time">
+                <option th:value ="11">11시</option>
+                <option th:value ="13">13시</option>
+                <option th:value ="15">15시</option>
+            </select>
+            </div>
+            <div class="reser_detail">
+                <label for="inquiry">문의 내용</label><br>
+                <select id="inquiry" th:name = "inquiry">
+                    <option th:value ="'강의 관련 상담'">강의 관련 상담</option>
+                    <option th:value ="'개인 상담'">개인 상담</option>
+                </select>
+            </div>
+            <br>
+            <div class="reser_button">
+                <input type="submit" value="예약하기">
+            </div>
+        </form>
+    </div>
+</div>
 <script>
     // 예약 날짜 입력 필드에 날짜 형식을 제어하는 JavaScript 코드
     window.onload = function() {
