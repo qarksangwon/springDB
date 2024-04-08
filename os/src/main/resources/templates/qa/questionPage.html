@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/questionPage.css">
     <title>유저 질문</title>
 </head>
 <body>
@@ -53,11 +53,16 @@
         </div>
     </div>
 </header>
-<h2>질문 하기</h2>
-<form th:action="@{/acos/questionPage}" th:object="${qaInfo}" method="post">
-    <textarea name="question" maxlength="60" pattern="[a-zA-Z0-9가-힣]+" title="한글, 영문자, 숫자만 입력하세요." placeholder="질문을 60자 이내로 입력해주세요"></textarea>
-    <input type="submit" value="질문하기">
-</form>
-</form>
+<div class="login_wrap">
+    <div class="login_container">
+        <h2>질문 하기</h2>
+        <form th:action="@{/acos/questionPage}" th:object="${qaInfo}" method="post">
+            <textarea rows="2" cols="50" name="question" maxlength="60" pattern="[a-zA-Z0-9가-힣]+" title="한글, 영문자, 숫자만 입력하세요." placeholder="질문을 60자 이내로 입력해주세요"></textarea>
+            <div class="qa_btn">
+                <input type="submit" value="질문하기">
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>

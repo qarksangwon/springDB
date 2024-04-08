@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/answerPage.css">
     <title>운영자 답변</title>
 </head>
 <body>
@@ -53,13 +53,20 @@
         </div>
     </div>
 </header>
-<h2>답변 하기</h2>
-<form th:action="@{/acos/answer}" method="post">
-    <input type="hidden" th:name="u" th:value="*{u}"><span th:text="*{u + '의 질문'}"></span><br>
-    <input type="hidden" th:name="q" th:value="*{q}"><span th:text="*{q}"></span>
-    <textarea name="a" maxlength="60" pattern="[a-zA-Z0-9가-힣]+" title="한글, 영문자, 숫자만 입력하세요." placeholder="답변을 60자 이내로 입력해주세요"></textarea>
-    <input type="submit" value="답변하기">
-</form>
-</form>
+<div class="login_wrap">
+    <div class="login_container">
+        <h2>답변 하기</h2>
+        <form th:action="@{/acos/answer}" method="post">
+            <div class="user_qust">
+                <input type="hidden" th:name="u" th:value="*{u}"><span class="user_name" th:text="*{u + '의 질문'}"></span><br>
+                <input type="hidden" th:name="q" th:value="*{q}"><span th:text="*{q}"></span>
+            </div>
+            <textarea rows="2" cols="50" name="a" maxlength="60" pattern="[a-zA-Z0-9가-힣]+" title="한글, 영문자, 숫자만 입력하세요." placeholder="답변을 60자 이내로 입력해주세요"></textarea>
+            <div class="qa_btn">
+                <input type="submit" value="답변하기">
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>
