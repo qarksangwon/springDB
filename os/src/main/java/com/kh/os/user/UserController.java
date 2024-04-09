@@ -94,15 +94,15 @@ public class UserController {
         if(user.getId().isEmpty()||user.getPassword().isEmpty()||user.getName().isEmpty()
         ||user.getAnswer().isEmpty()){
             model.addAttribute("Message","들어가지 않은 값이 있습니다..");
-            return "user/changeCheck";
+            return "user/signupCheck";
         }
         if(user.getId().contains("-")){
             model.addAttribute("Message","아이디에 -이 들어갈 수 없습니다.");
-            return "user/changeCheck";
+            return "user/signupCheck";
         }
         if(user.getId().length()<6 || user.getId().length()>10){
             model.addAttribute("Message","아이디는 6자리 이상 10자리 이하 사용해야 합니다.");
-            return "user/changeCheck";
+            return "user/signupCheck";
         }
 
         int suRst = uDao.signUp(user);
@@ -127,7 +127,7 @@ public class UserController {
         user.setAnswer(user.getAnswer().trim());
         if(user.getId().isEmpty()||user.getPassword().isEmpty()||user.getName().isEmpty()
                 ||user.getAnswer().isEmpty()){
-            model.addAttribute("Message","들어가지 않은 값이 있습니다..");
+            model.addAttribute("Message","들어가지 않은 값이 있습니다.");
             return "user/changeCheck";
         }
         int rst = uDao.updateUser(user);
