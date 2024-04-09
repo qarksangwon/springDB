@@ -51,11 +51,30 @@ public class QAController {
     public String questionInput(@ModelAttribute("qaInfo")QAVO qa, Model model) throws SQLException {
         UserVO user = null;
         NotUserVO nUser = null;
+        List<QAVO> currentList = null;
         user = (UserVO)session.getAttribute("InUser");
         nUser = (NotUserVO)session.getAttribute("InNotUser");
-        if(user != null) qa.setId(user.getId());
-        else qa.setPhonenumber(nUser.getPhoneNumber());
         qa.setQuestion(qa.getQuestion().trim());
+        if(user != null) {
+            qa.setId(user.getId());
+            currentList = qDao.loadQA(user);
+            for(QAVO qCheck : currentList){
+                if(qCheck.getQuestion().equals(qa.getQuestion())){
+                    model.addAttribute("Message","이미 등록한 질문입니다.");
+                    return "qa/qaOK";
+                }
+            }
+        }
+        else {
+            qa.setPhonenumber(nUser.getPhoneNumber());
+            currentList = qDao.loadQA(nUser);
+            for(QAVO qCheck : currentList){
+                if(qCheck.getQuestion().equals(qa.getQuestion())){
+                    model.addAttribute("Message","이미 등록한 질문입니다.");
+                    return "qa/qaOK";
+                }
+            }
+        }
         if(qa.getQuestion() == ""){
             model.addAttribute("Message","공백입니다.");
             return "qa/qaOK";
@@ -64,6 +83,7 @@ public class QAController {
         qa.setQuestion(qa.getQuestion().replace("\r",""));
         qa.setQuestion(qa.getQuestion().replace("\n",""));
         qa.setQuestion(qa.getQuestion().replace("\t",""));
+
         int rst = qDao.insertQA(qa);
         if(rst == 1){
             model.addAttribute("Message", "질문이 등록됐습니다.");
