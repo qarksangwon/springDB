@@ -8,7 +8,6 @@
 <br>
 
 ### 👥 멤버구성
-## Team
 |<img src="https://avatars.githubusercontent.com/u/113305463?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/161570968?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/163942942?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/161571071?v=4" width="150" height="150"/>|
 |:-:|:-:|:-:|:-:|
 |박상원<br/>[@qarksangwon](https://github.com/qarksangwon)|김현근<br/>[@hyunkk1](https://github.com/hyunkk1)|안준영<br/>[@hojunahn](https://github.com/hojunahn)|김기주<br/>[@kkimkiju](https://github.com/kkimkiju)|
