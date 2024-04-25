@@ -84,6 +84,6 @@ _FK에 CASCADE 설정해 회원이 탈퇴하면 자동으로 데이터가 사라
 
 ___UI 구현 부분과 더욱 자세한 내용은 아래의 링크의 Notion 통해 확인할 수 있습니다!___
 
-  <a href="[https://hulking-flea-2e8.notion.site/5bdd97c53b954855af8a46848b83def2?pvs=4](https://www.notion.so/Spring-boot-jdbc-68818c41e7634e99b3d615e4057acce2)">
+  <a href="https://www.notion.so/Spring-boot-jdbc-68818c41e7634e99b3d615e4057acce2">
     <img src="https://img.shields.io/badge/TeamProject-0000ff?style=for-the-badge&logo=notion&logoColor=#ECD53F">
   </a>
