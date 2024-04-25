@@ -3,12 +3,16 @@
 ---
 
 ### 🎯 목적
-- SpringBoot, Jdbc(oracle), thymeleaf를 사용해 학원 운영 시스템을 만드는 것이 목표입니다.
+- 학원 운영 시스템을 만들어 보면서<br>SpringBoot, Jdbc(oracle), thymeleaf를 사용해<br> Springboot Framework의 이해도를 높이는데 목적을 둔 프로젝트입니다.
 
 <br>
 
 ### 👥 멤버구성
-  - 박상원 (qarksangwon) : 회원관리 시스템, 운영자 시스템, 전반적인 DAO, VO, Cotroller, Thymeleaf, DB
+## Team
+|<img src="https://avatars.githubusercontent.com/u/113305463?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/161570968?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/163942942?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/161571071?v=4" width="150" height="150"/>|
+|:-:|:-:|:-:|:-:|
+|박상원<br/>[@qarksangwon](https://github.com/qarksangwon)|김현근<br/>[@hyunkk1](https://github.com/hyunkk1)|안준영<br/>[@hojunahn](https://github.com/hojunahn)|김기주<br/>[@kkimkiju](https://github.com/kkimkiju)|
+  - 박상원 (qarksangwon) : 회원관리 시스템, 운영자 시스템, DAO, VO, Cotroller, Thymeleaf, DB
   - 김기주 (kkimkiju) : 수강신청 시스템, 수강신청 DB, 수강신청 DAO, Controller , 수강신청 UI
   - 안준영 (hojunahn) : 상담 콘솔, UI (HTML, CSS)  
   - 김현근 (hyunkk1) : Q&A 콘솔
